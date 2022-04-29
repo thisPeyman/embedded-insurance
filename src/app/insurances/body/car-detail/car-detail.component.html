@@ -2,64 +2,23 @@
   <h2 class="text-center text-3xl">مشخصات اولیه ماشین</h2>
   <!-- <nz-spin nzSimple [nzSize]="'large'" class="mt-20"></nz-spin> -->
 
+  <app-select-item
+    title="برند خودرو"
+    [options]="brands$ | async"
+    (onChange)="brandChange($event)"
+    [selectedValue]="bodyFacade.selectedBrand$ | async"
+  ></app-select-item>
+  <app-select-item
+    title="مدل خودرو"
+    [options]="models$ | async"
+    (onChange)="modelChange($event)"
+    [selectedValue]="bodyFacade.selectedModel$ | async"
+  ></app-select-item>
   <app-select-item></app-select-item>
   <app-select-item></app-select-item>
   <app-select-item></app-select-item>
-  <app-select-item></app-select-item>
-  <!-- <div class="flex justify-center gap-5 items-center px-3 mt-10">
-    <h3 class="text-lg">برند خودرو</h3>
-    <nz-select
-      nzShowSearch
-      [(ngModel)]="selectedValue"
-      nzSize="large"
-      class="text-lg w-1/3"
-    >
-      <nz-option nzLabel="پژو" nzValue="jack"></nz-option>
-      <nz-option nzLabel="پرشیا" nzValue="lucy"></nz-option>
-      <nz-option nzLabel="206" nzValue="tom"></nz-option>
-    </nz-select>
-  </div>
-  <div class="flex justify-center gap-5 items-center px-3 mt-10">
-    <h3 class="text-lg">مدل خودرو</h3>
-    <nz-select
-      nzShowSearch
-      [(ngModel)]="selectedValue"
-      nzSize="large"
-      class="text-lg w-1/3"
-    >
-      <nz-option nzLabel="پژو" nzValue="jack"></nz-option>
-      <nz-option nzLabel="پرشیا" nzValue="lucy"></nz-option>
-      <nz-option nzLabel="206" nzValue="tom"></nz-option>
-    </nz-select>
-  </div>
-  <div class="flex justify-center gap-5 items-center px-3 mt-10">
-    <h3 class="text-lg">کاربری</h3>
-    <nz-select
-      nzShowSearch
-      [(ngModel)]="selectedValue"
-      nzSize="large"
-      class="text-lg w-1/3"
-    >
-      <nz-option nzLabel="پژو" nzValue="jack"></nz-option>
-      <nz-option nzLabel="پرشیا" nzValue="lucy"></nz-option>
-      <nz-option nzLabel="206" nzValue="tom"></nz-option>
-    </nz-select>
-  </div>
-  <div class="flex justify-center gap-5 items-center px-3 mt-10">
-    <h3 class="text-lg">سال ساخت</h3>
-    <nz-select
-      nzShowSearch
-      [(ngModel)]="selectedValue"
-      nzSize="large"
-      class="text-lg w-1/3"
-    >
-      <nz-option nzLabel="پژو" nzValue="jack"></nz-option>
-      <nz-option nzLabel="پرشیا" nzValue="lucy"></nz-option>
-      <nz-option nzLabel="206" nzValue="tom"></nz-option>
-    </nz-select>
-  </div> -->
 
-  <i
+  <!-- <i
     nz-icon
     nzType="arrow-right"
     nzTheme="outline"
@@ -70,5 +29,5 @@
     nzType="arrow-left"
     nzTheme="outline"
     class="action fixed left-3 bottom-20"
-  ></i>
+  ></i> -->
 </div>

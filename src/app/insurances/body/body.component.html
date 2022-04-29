@@ -1,1 +1,3 @@
-<app-car-detail></app-car-detail>
+<ng-container [ngSwitch]="flowStep$ | async">
+  <app-car-detail *ngSwitchCase="1"></app-car-detail>
+</ng-container>

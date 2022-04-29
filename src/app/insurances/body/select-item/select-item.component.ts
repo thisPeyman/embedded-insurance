@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-select-item',
@@ -6,9 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./select-item.component.scss'],
 })
 export class SelectItemComponent implements OnInit {
-  selectedValue = null;
+  @Input() options: string[] | null = null;
+  @Input() title = '';
+  @Input() selectedValue: string | null = '';
+  @Output() onChange = new EventEmitter();
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  optionChanged(event: string) {
+    this.onChange.emit(event);
+  }
 }

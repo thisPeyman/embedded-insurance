@@ -9,6 +9,13 @@ import { BodyComponent } from './body.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { FormsModule } from '@angular/forms';
 import { SelectItemComponent } from './select-item/select-item.component';
+import { BodyFacade } from './+state/body.facade';
+import { BodyService } from './shared/body.service';
+import { HttpClientModule } from '@angular/common/http';
+import { EffectsModule } from '@ngrx/effects';
+import { BodyEffects } from './+state/body.effects';
+import { StoreModule } from '@ngrx/store';
+import { bodyFeature } from './+state/body.reducer';
 
 @NgModule({
   declarations: [BodyComponent, CarDetailComponent, SelectItemComponent],
@@ -19,6 +26,10 @@ import { SelectItemComponent } from './select-item/select-item.component';
     NzIconModule,
     NzSelectModule,
     FormsModule,
+    HttpClientModule,
+    EffectsModule.forFeature([BodyEffects]),
+    StoreModule.forFeature(bodyFeature),
   ],
+  providers: [BodyFacade, BodyService],
 })
 export class BodyModule {}
