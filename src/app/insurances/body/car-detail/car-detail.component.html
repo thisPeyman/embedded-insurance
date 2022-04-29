@@ -14,9 +14,16 @@
     (onChange)="modelChange($event)"
     [selectedValue]="bodyFacade.selectedModel$ | async"
   ></app-select-item>
-  <app-select-item></app-select-item>
-  <app-select-item></app-select-item>
-  <app-select-item></app-select-item>
+  <app-select-item
+    title="کاربری خودرو"
+    [options]="usages"
+    (onChange)="usageChange($event)"
+  ></app-select-item>
+  <app-select-item
+    title="سال ساخت"
+    [options]="yearsList"
+    (onChange)="builtYearChange($event)"
+  ></app-select-item>
 
   <!-- <i
     nz-icon

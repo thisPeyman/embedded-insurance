@@ -20,3 +20,11 @@ export const changeModel = createAction(
   '[Body Insurance - Car Detail] Change Model',
   props<{ model: string }>()
 );
+export const changeUsage = createAction(
+  '[Body Insurance - Car Detail] Usage Model',
+  props<{ usage: string }>()
+);
+export const changeBuiltYear = createAction(
+  '[Body Insurance - Car Detail] Usage Model',
+  props<{ builtYear: number }>()
+);

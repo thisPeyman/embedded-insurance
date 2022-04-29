@@ -21,8 +21,13 @@ export class BodyFacade {
   changeBrand(brand: string) {
     this.store.dispatch(BodyActions.changeBrand({ brand }));
   }
-
   changeModel(model: string) {
     this.store.dispatch(BodyActions.changeModel({ model }));
+  }
+  changeUsage(usage: string) {
+    this.store.dispatch(BodyActions.changeUsage({ usage }));
+  }
+  changeBuiltYear(builtYear: number) {
+    this.store.dispatch(BodyActions.changeBuiltYear({ builtYear }));
   }
 }

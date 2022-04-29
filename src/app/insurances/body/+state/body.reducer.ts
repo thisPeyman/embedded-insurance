@@ -9,6 +9,8 @@ interface State {
   selectedVehicle: {
     brand: string;
     model: string;
+    usage: string;
+    builtYear: number;
   };
 }
 
@@ -18,6 +20,8 @@ const initialState: State = {
   selectedVehicle: {
     brand: '',
     model: '',
+    usage: '',
+    builtYear: 0,
   },
 };
 
@@ -36,6 +40,14 @@ export const bodyFeature = createFeature({
     on(BodyActions.changeModel, (state, { model }) => ({
       ...state,
       selectedVehicle: { ...state.selectedVehicle, model },
+    })),
+    on(BodyActions.changeUsage, (state, { usage }) => ({
+      ...state,
+      selectedVehicle: { ...state.selectedVehicle, usage },
+    })),
+    on(BodyActions.changeBuiltYear, (state, { builtYear }) => ({
+      ...state,
+      selectedVehicle: { ...state.selectedVehicle, builtYear },
     }))
   ),
 });
