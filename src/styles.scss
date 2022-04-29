@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "ng-zorro-antd/ng-zorro-antd.min.css";
+
+body {
+  font-family: Vazirmatn, sans-serif;
+  direction: rtl;
+}
