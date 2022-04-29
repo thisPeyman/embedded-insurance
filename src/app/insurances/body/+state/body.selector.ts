@@ -4,15 +4,6 @@ import { bodyFeature } from './body.reducer';
 export const { selectVehicles, selectFlowStep, selectSelectedVehicle } =
   bodyFeature;
 
-export const selectSelectedBrand = createSelector(
-  selectSelectedVehicle,
-  ({ brand }) => brand
-);
-export const selectSelectedModel = createSelector(
-  selectSelectedVehicle,
-  ({ model }) => model
-);
-
 export const selectVehicleBrands = createSelector(
   selectVehicles,
   (vehicles) => {
@@ -27,9 +18,9 @@ export const selectVehicleBrands = createSelector(
 );
 
 export const selectVehicleModels = createSelector(
-  selectSelectedBrand,
+  selectSelectedVehicle,
   selectVehicles,
-  (brand, vehicles) => {
+  ({ brand }, vehicles) => {
     return vehicles
       .filter((vehicle) => vehicle.category === brand)
       .map((vehicle) => vehicle.caption);

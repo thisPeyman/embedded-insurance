@@ -1,5 +1,6 @@
 import { createAction, createFeature, props } from '@ngrx/store';
 import { Vehicle } from '../shared/VehiclesResponse';
+import { SelectedVehicle } from '../shared/SelectedVehicle';
 
 export const loadVehicles = createAction('[Body Insurance] Load Vehicles Data');
 
@@ -12,19 +13,7 @@ export const loadVehiclesError = createAction(
   '[Body Insurance - Car Detail] Load Vehicles Error'
 );
 
-export const changeBrand = createAction(
-  '[Body Insurance - Car Detail] Change Brand',
-  props<{ brand: string }>()
-);
-export const changeModel = createAction(
-  '[Body Insurance - Car Detail] Change Model',
-  props<{ model: string }>()
-);
-export const changeUsage = createAction(
-  '[Body Insurance - Car Detail] Usage Model',
-  props<{ usage: string }>()
-);
-export const changeBuiltYear = createAction(
-  '[Body Insurance - Car Detail] Usage Model',
-  props<{ builtYear: number }>()
+export const updateVehicle = createAction(
+  '[Body Insurance - Car Detail] Update Selected Vehicle',
+  props<{ vehicle: Partial<SelectedVehicle> }>()
 );

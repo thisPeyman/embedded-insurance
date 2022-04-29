@@ -14,7 +14,7 @@ export class CarDetailComponent implements OnInit {
   // this will generate list of numbers between 1350 and 1401
   yearsList = Array.from({ length: 1401 - 1350 }, (_, i) =>
     String(1350 + 1 + i)
-  );
+  ).reverse();
   selectedValue = null;
 
   constructor(public bodyFacade: BodyFacade) {}
@@ -24,15 +24,15 @@ export class CarDetailComponent implements OnInit {
   }
 
   brandChange(brand: string) {
-    this.bodyFacade.changeBrand(brand);
+    this.bodyFacade.updateSelectedVehicle({ brand });
   }
   modelChange(model: string) {
-    this.bodyFacade.changeModel(model);
+    this.bodyFacade.updateSelectedVehicle({ model });
   }
   usageChange(usage: string) {
-    this.bodyFacade.changeUsage(usage);
+    this.bodyFacade.updateSelectedVehicle({ usage });
   }
   builtYearChange(builtYear: string) {
-    this.bodyFacade.changeBuiltYear(+builtYear);
+    this.bodyFacade.updateSelectedVehicle({ builtYear: +builtYear });
   }
 }

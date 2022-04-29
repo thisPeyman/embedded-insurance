@@ -6,13 +6,11 @@
     title="برند خودرو"
     [options]="brands$ | async"
     (onChange)="brandChange($event)"
-    [selectedValue]="bodyFacade.selectedBrand$ | async"
   ></app-select-item>
   <app-select-item
     title="مدل خودرو"
     [options]="models$ | async"
     (onChange)="modelChange($event)"
-    [selectedValue]="bodyFacade.selectedModel$ | async"
   ></app-select-item>
   <app-select-item
     title="کاربری خودرو"

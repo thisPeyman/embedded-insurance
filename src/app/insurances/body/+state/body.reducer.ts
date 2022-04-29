@@ -1,4 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
+import { SelectedVehicle } from '../shared/SelectedVehicle';
 import { Vehicle } from '../shared/VehiclesResponse';
 
 import * as BodyActions from './body.action';
@@ -6,12 +7,7 @@ import * as BodyActions from './body.action';
 interface State {
   vehicles: Vehicle[];
   flowStep: number;
-  selectedVehicle: {
-    brand: string;
-    model: string;
-    usage: string;
-    builtYear: number;
-  };
+  selectedVehicle: SelectedVehicle;
 }
 
 const initialState: State = {
@@ -33,21 +29,9 @@ export const bodyFeature = createFeature({
       ...state,
       vehicles,
     })),
-    on(BodyActions.changeBrand, (state, { brand }) => ({
+    on(BodyActions.updateVehicle, (state, action) => ({
       ...state,
-      selectedVehicle: { ...state.selectedVehicle, brand, model: '' },
-    })),
-    on(BodyActions.changeModel, (state, { model }) => ({
-      ...state,
-      selectedVehicle: { ...state.selectedVehicle, model },
-    })),
-    on(BodyActions.changeUsage, (state, { usage }) => ({
-      ...state,
-      selectedVehicle: { ...state.selectedVehicle, usage },
-    })),
-    on(BodyActions.changeBuiltYear, (state, { builtYear }) => ({
-      ...state,
-      selectedVehicle: { ...state.selectedVehicle, builtYear },
+      selectedVehicle: { ...state.selectedVehicle, ...action.vehicle },
     }))
   ),
 });
