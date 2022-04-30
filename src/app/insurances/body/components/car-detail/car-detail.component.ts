@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BodyFacade } from '../+state/body.facade';
-import { SelectedVehicle } from '../shared/SelectedVehicle';
+import { BodyFacade } from '../../+state/body.facade';
+import { SelectedVehicle } from '../../shared/SelectedVehicle';
 
 @Component({
   selector: 'app-car-detail',
