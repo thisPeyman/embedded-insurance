@@ -6,7 +6,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 
 import { BodyRoutingModule } from './body-routing.module';
 import { BodyComponent } from './body.component';
-import { CarDetailComponent } from './car-detail/car-detail.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { FormsModule } from '@angular/forms';
 import { BodyFacade } from './+state/body.facade';
 import { BodyService } from './shared/body.service';
@@ -16,9 +16,10 @@ import { BodyEffects } from './+state/body.effects';
 import { StoreModule } from '@ngrx/store';
 import { bodyFeature } from './+state/body.reducer';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { CarPriceComponent } from './components/car-price/car-price.component';
 
 @NgModule({
-  declarations: [BodyComponent, CarDetailComponent],
+  declarations: [BodyComponent, CarDetailComponent, CarPriceComponent],
   imports: [
     CommonModule,
     BodyRoutingModule,
