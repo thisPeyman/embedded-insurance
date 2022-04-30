@@ -1,0 +1,11 @@
+<div class="flex justify-center gap-5 mt-7">
+  <h2 class="text-lg">
+    <ng-content></ng-content>
+  </h2>
+  <nz-switch
+    class="text-blue-600 bg-inherit"
+    [formControl]="control"
+    nzCheckedChildren="بله"
+    nzUnCheckedChildren="خیر"
+  ></nz-switch>
+</div>

@@ -1,9 +1,46 @@
 <div class="relative pt-10 text-center">
-  <h2 class="text-center text-3xl">مشخصات اولیه ماشین</h2>
-  <button
-    class="bg-gray-600 text-gray-50 py-3 px-4 mt-10 rounded-sm shadow-sm text-lg"
-    (click)="prevFlow()"
-  >
-    مرحله‌ی قبل
-  </button>
+  <h2 class="text-center text-3xl">ارزش خودرو</h2>
+
+  <form [formGroup]="form">
+    <app-input [control]="form.get('price')"></app-input>
+    <app-switch [control]="form.get('hasInsuranceHistory')"
+      >آیا سابقه بیمه بدنه دارید؟</app-switch
+    >
+    <app-switch [control]="form.get('isBrandNew')" *ngIf="!hasHistory"
+      >آیا ماشین شما صفر کیلومتر است؟</app-switch
+    >
+    <ng-container *ngIf="hasHistory">
+      <app-select-item
+        [options]="discountYears"
+        [control]="form.get('mainDiscountYears')"
+      >
+        <p class="text-base">میزان تخفیف عدم خسارت <br />پوشش های اصلی</p>
+      </app-select-item>
+      <app-select-item
+        [options]="discountYears"
+        [control]="form.get('sideDiscountYears')"
+      >
+        <p class="text-base">
+          میزان تخفیف عدم خسارت <br />پوشش های اضافی
+        </p></app-select-item
+      >
+    </ng-container>
+  </form>
+
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <button
+      class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
+      (click)="prevFlow()"
+    >
+      مرحله‌ی قبل
+    </button>
+    <button
+      class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
+      (click)="nextFlow()"
+    >
+      مشاهده‌ قیمت
+    </button>
+  </div>
+
+  <div class="block">{{ form.value | json }}</div>
 </div>

@@ -4,8 +4,8 @@ export interface SelectedVehicle {
   usage: string;
   builtYear: number;
   price: number;
-  hasFakeAccessories: boolean;
-  FakeAccessoriesPrice: number;
   hasInsuranceHistory: boolean;
   isBrandNew: boolean;
+  mainDiscountYears: number;
+  sideDiscountYears: number;
 }

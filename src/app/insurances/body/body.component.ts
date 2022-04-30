@@ -12,4 +12,8 @@ export class BodyComponent implements OnInit {
   constructor(private bodyFacade: BodyFacade) {}
 
   ngOnInit(): void {}
+
+  test() {
+    this.bodyFacade.prevFlow();
+  }
 }

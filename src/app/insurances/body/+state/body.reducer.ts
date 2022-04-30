@@ -18,11 +18,11 @@ const initialState: State = {
     model: '',
     usage: '',
     builtYear: 0,
-    FakeAccessoriesPrice: 0,
-    hasFakeAccessories: false,
     hasInsuranceHistory: false,
     isBrandNew: false,
     price: 0,
+    mainDiscountYears: 0,
+    sideDiscountYears: 0,
   },
 };
 
