@@ -20,4 +20,8 @@ export class BodyFacade {
   updateSelectedVehicle(vehicle: Partial<SelectedVehicle>) {
     this.store.dispatch(BodyActions.updateVehicle({ vehicle }));
   }
+
+  nextFlow() {
+    this.store.dispatch(BodyActions.nextFlow());
+  }
 }

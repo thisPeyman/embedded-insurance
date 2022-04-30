@@ -32,6 +32,10 @@ export const bodyFeature = createFeature({
     on(BodyActions.updateVehicle, (state, action) => ({
       ...state,
       selectedVehicle: { ...state.selectedVehicle, ...action.vehicle },
+    })),
+    on(BodyActions.nextFlow, (state) => ({
+      ...state,
+      flowStep: state.flowStep + 1,
     }))
   ),
 });

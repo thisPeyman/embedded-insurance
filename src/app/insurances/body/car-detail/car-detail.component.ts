@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BodyFacade } from '../+state/body.facade';
+import { SelectedVehicle } from '../shared/SelectedVehicle';
 
 @Component({
   selector: 'app-car-detail',
@@ -17,22 +18,17 @@ export class CarDetailComponent implements OnInit {
   ).reverse();
   selectedValue = null;
 
-  constructor(public bodyFacade: BodyFacade) {}
+  constructor(private bodyFacade: BodyFacade) {}
 
   ngOnInit(): void {
     this.bodyFacade.loadVehiclesData();
   }
 
-  brandChange(brand: string) {
-    this.bodyFacade.updateSelectedVehicle({ brand });
+  updateVehicle(vehicle: Partial<SelectedVehicle>) {
+    this.bodyFacade.updateSelectedVehicle(vehicle);
   }
-  modelChange(model: string) {
-    this.bodyFacade.updateSelectedVehicle({ model });
-  }
-  usageChange(usage: string) {
-    this.bodyFacade.updateSelectedVehicle({ usage });
-  }
-  builtYearChange(builtYear: string) {
-    this.bodyFacade.updateSelectedVehicle({ builtYear: +builtYear });
+
+  nextFlow() {
+    this.bodyFacade.nextFlow();
   }
 }

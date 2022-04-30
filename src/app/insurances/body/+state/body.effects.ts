@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, mergeMap, of } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 import { BodyService } from '../shared/body.service';
 import * as BodyActions from './body.action';
 
@@ -9,7 +9,7 @@ export class BodyEffects {
   loadVehicles = createEffect(() =>
     this.actions$.pipe(
       ofType(BodyActions.loadVehicles),
-      mergeMap(() =>
+      switchMap(() =>
         this.bodyService.getVehiclesData().pipe(
           map((vehicles) => {
             return BodyActions.loadVehiclesSuccess({ vehicles });

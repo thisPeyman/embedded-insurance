@@ -1,38 +1,31 @@
 <div class="relative pt-10 text-center">
   <h2 class="text-center text-3xl">مشخصات اولیه ماشین</h2>
-  <!-- <nz-spin nzSimple [nzSize]="'large'" class="mt-20"></nz-spin> -->
 
   <app-select-item
     title="برند خودرو"
     [options]="brands$ | async"
-    (onChange)="brandChange($event)"
+    (onChange)="updateVehicle({ brand: $event })"
   ></app-select-item>
   <app-select-item
     title="مدل خودرو"
     [options]="models$ | async"
-    (onChange)="modelChange($event)"
+    (onChange)="updateVehicle({ model: $event })"
   ></app-select-item>
   <app-select-item
     title="کاربری خودرو"
     [options]="usages"
-    (onChange)="usageChange($event)"
+    (onChange)="updateVehicle({ usage: $event })"
   ></app-select-item>
   <app-select-item
     title="سال ساخت"
     [options]="yearsList"
-    (onChange)="builtYearChange($event)"
+    (onChange)="updateVehicle({ builtYear: +$event })"
   ></app-select-item>
 
-  <!-- <i
-    nz-icon
-    nzType="arrow-right"
-    nzTheme="outline"
-    class="action fixed right-3 bottom-20"
-  ></i>
-  <i
-    nz-icon
-    nzType="arrow-left"
-    nzTheme="outline"
-    class="action fixed left-3 bottom-20"
-  ></i> -->
+  <button
+    class="bg-green-600 text-gray-50 py-3 px-4 mt-10 rounded-sm shadow-sm text-lg"
+    (click)="nextFlow()"
+  >
+    ثبت و ادامه
+  </button>
 </div>

@@ -2,7 +2,9 @@ import { createAction, createFeature, props } from '@ngrx/store';
 import { Vehicle } from '../shared/VehiclesResponse';
 import { SelectedVehicle } from '../shared/SelectedVehicle';
 
-export const loadVehicles = createAction('[Body Insurance] Load Vehicles Data');
+export const loadVehicles = createAction(
+  '[Body Insurance - Car Detail] Load Vehicles Data'
+);
 
 export const loadVehiclesSuccess = createAction(
   '[Body Insurance - Car Detail] Load Vehicles Success',
@@ -17,3 +19,5 @@ export const updateVehicle = createAction(
   '[Body Insurance - Car Detail] Update Selected Vehicle',
   props<{ vehicle: Partial<SelectedVehicle> }>()
 );
+
+export const nextFlow = createAction('[Body Insurance] Go To Next Flow');
