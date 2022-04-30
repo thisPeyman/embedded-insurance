@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription, take } from 'rxjs';
 import { BodyFacade } from '../../+state/body.facade';
 import { SelectedVehicle } from '../../shared/SelectedVehicle';
 
@@ -8,21 +10,30 @@ import { SelectedVehicle } from '../../shared/SelectedVehicle';
   styleUrls: ['./car-detail.component.scss'],
 })
 export class CarDetailComponent implements OnInit {
+  form: FormGroup;
   brands$ = this.bodyFacade.brands$;
   models$ = this.bodyFacade.models$;
   usages = ['شخصی', 'تاکسی درون شهری', 'تاکسی برون شهری'];
   // this will generate list of numbers between 1350 and 1401
-  yearsList = Array.from({ length: 1401 - 1350 }, (_, i) =>
-    String(1350 + 1 + i)
+  yearsList = Array.from(
+    { length: 1401 - 1350 },
+    (_, i) => 1350 + 1 + i
   ).reverse();
 
-  // this is for 2-way binding
-  selectedVehicle$ = this.bodyFacade.selectedVehicle$;
-
-  constructor(private bodyFacade: BodyFacade) {}
+  constructor(private bodyFacade: BodyFacade, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      brand: '',
+      model: '',
+      usage: '',
+      builtYear: '',
+    });
+  }
 
   ngOnInit(): void {
     this.bodyFacade.loadVehiclesData();
+    this.setFormValues();
+
+    this.form.valueChanges.subscribe((v) => this.updateVehicle(v));
   }
 
   updateVehicle(vehicle: Partial<SelectedVehicle>) {
@@ -31,5 +42,22 @@ export class CarDetailComponent implements OnInit {
 
   nextFlow() {
     this.bodyFacade.nextFlow();
+  }
+
+  setFormValues() {
+    let formValue: Partial<SelectedVehicle> = {};
+
+    this.bodyFacade.selectedVehicle$
+      .pipe(take(1))
+      .subscribe((v) => (formValue = v));
+
+    const { brand, model, usage, builtYear } = formValue;
+
+    this.form.setValue({
+      brand,
+      model,
+      usage,
+      builtYear,
+    });
   }
 }

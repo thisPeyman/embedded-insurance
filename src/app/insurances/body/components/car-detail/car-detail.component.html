@@ -1,32 +1,22 @@
 <div class="relative pt-10 text-center">
   <h2 class="text-center text-3xl">مشخصات اولیه ماشین</h2>
 
-  <ng-container *ngIf="selectedVehicle$ | async as vehicle">
-    <app-select-item
-      title="برند خودرو"
-      [options]="brands$ | async"
-      (onChange)="updateVehicle({ brand: $event })"
-      [selectedValue]="vehicle.brand"
-    ></app-select-item>
-    <app-select-item
-      title="مدل خودرو"
-      [options]="models$ | async"
-      (onChange)="updateVehicle({ model: $event })"
-      [selectedValue]="vehicle.model"
-    ></app-select-item>
-    <app-select-item
-      title="کاربری خودرو"
-      [options]="usages"
-      (onChange)="updateVehicle({ usage: $event })"
-      [selectedValue]="vehicle.usage"
-    ></app-select-item>
-    <app-select-item
-      title="سال ساخت"
-      [options]="yearsList"
-      (onChange)="updateVehicle({ builtYear: +$event })"
-      [selectedValue]="'' + vehicle.builtYear"
-    ></app-select-item>
-  </ng-container>
+  <form [formGroup]="form">
+    <app-select-item [options]="brands$ | async" [control]="form.get('brand')"
+      >برند خودرو</app-select-item
+    >
+    <app-select-item [options]="models$ | async" [control]="form.get('model')"
+      >مدل خودرو</app-select-item
+    >
+    <app-select-item [options]="usages" [control]="form.get('usage')"
+      >کاربری خودرو</app-select-item
+    >
+    <app-select-item [options]="yearsList" [control]="form.get('builtYear')"
+      >سال ساخت</app-select-item
+    >
+  </form>
+
+  {{ form.value | json }}
 
   <button
     class="bg-green-600 text-gray-50 py-3 px-4 mt-10 rounded-sm shadow-sm text-lg"
