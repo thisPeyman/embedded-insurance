@@ -8,7 +8,6 @@ import { BodyRoutingModule } from './body-routing.module';
 import { BodyComponent } from './body.component';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { FormsModule } from '@angular/forms';
-import { SelectItemComponent } from './select-item/select-item.component';
 import { BodyFacade } from './+state/body.facade';
 import { BodyService } from './shared/body.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,15 +15,16 @@ import { EffectsModule } from '@ngrx/effects';
 import { BodyEffects } from './+state/body.effects';
 import { StoreModule } from '@ngrx/store';
 import { bodyFeature } from './+state/body.reducer';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [BodyComponent, CarDetailComponent, SelectItemComponent],
+  declarations: [BodyComponent, CarDetailComponent],
   imports: [
     CommonModule,
     BodyRoutingModule,
     NzSpinModule,
     NzIconModule,
-    NzSelectModule,
+    SharedModule,
     FormsModule,
     HttpClientModule,
     EffectsModule.forFeature([BodyEffects]),
