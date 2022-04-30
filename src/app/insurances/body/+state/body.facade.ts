@@ -10,6 +10,7 @@ export class BodyFacade {
   flowStep$ = this.store.select(BodySelectors.selectFlowStep);
   brands$ = this.store.select(BodySelectors.selectVehicleBrands);
   models$ = this.store.select(BodySelectors.selectVehicleModels);
+  selectedVehicle$ = this.store.select(BodySelectors.selectSelectedVehicle);
 
   constructor(private store: Store) {}
 
@@ -23,5 +24,9 @@ export class BodyFacade {
 
   nextFlow() {
     this.store.dispatch(BodyActions.nextFlow());
+  }
+
+  prevFlow() {
+    this.store.dispatch(BodyActions.prevFlow());
   }
 }

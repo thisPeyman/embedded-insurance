@@ -1,26 +1,32 @@
 <div class="relative pt-10 text-center">
   <h2 class="text-center text-3xl">مشخصات اولیه ماشین</h2>
 
-  <app-select-item
-    title="برند خودرو"
-    [options]="brands$ | async"
-    (onChange)="updateVehicle({ brand: $event })"
-  ></app-select-item>
-  <app-select-item
-    title="مدل خودرو"
-    [options]="models$ | async"
-    (onChange)="updateVehicle({ model: $event })"
-  ></app-select-item>
-  <app-select-item
-    title="کاربری خودرو"
-    [options]="usages"
-    (onChange)="updateVehicle({ usage: $event })"
-  ></app-select-item>
-  <app-select-item
-    title="سال ساخت"
-    [options]="yearsList"
-    (onChange)="updateVehicle({ builtYear: +$event })"
-  ></app-select-item>
+  <ng-container *ngIf="selectedVehicle$ | async as vehicle">
+    <app-select-item
+      title="برند خودرو"
+      [options]="brands$ | async"
+      (onChange)="updateVehicle({ brand: $event })"
+      [selectedValue]="vehicle.brand"
+    ></app-select-item>
+    <app-select-item
+      title="مدل خودرو"
+      [options]="models$ | async"
+      (onChange)="updateVehicle({ model: $event })"
+      [selectedValue]="vehicle.model"
+    ></app-select-item>
+    <app-select-item
+      title="کاربری خودرو"
+      [options]="usages"
+      (onChange)="updateVehicle({ usage: $event })"
+      [selectedValue]="vehicle.usage"
+    ></app-select-item>
+    <app-select-item
+      title="سال ساخت"
+      [options]="yearsList"
+      (onChange)="updateVehicle({ builtYear: +$event })"
+      [selectedValue]="'' + vehicle.builtYear"
+    ></app-select-item>
+  </ng-container>
 
   <button
     class="bg-green-600 text-gray-50 py-3 px-4 mt-10 rounded-sm shadow-sm text-lg"

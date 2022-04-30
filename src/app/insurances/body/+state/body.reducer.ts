@@ -41,6 +41,10 @@ export const bodyFeature = createFeature({
     on(BodyActions.nextFlow, (state) => ({
       ...state,
       flowStep: state.flowStep + 1,
+    })),
+    on(BodyActions.prevFlow, (state) => ({
+      ...state,
+      flowStep: state.flowStep - 1,
     }))
   ),
 });

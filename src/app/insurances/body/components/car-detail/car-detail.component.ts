@@ -11,12 +11,13 @@ export class CarDetailComponent implements OnInit {
   brands$ = this.bodyFacade.brands$;
   models$ = this.bodyFacade.models$;
   usages = ['شخصی', 'تاکسی درون شهری', 'تاکسی برون شهری'];
-
   // this will generate list of numbers between 1350 and 1401
   yearsList = Array.from({ length: 1401 - 1350 }, (_, i) =>
     String(1350 + 1 + i)
   ).reverse();
-  selectedValue = null;
+
+  // this is for 2-way binding
+  selectedVehicle$ = this.bodyFacade.selectedVehicle$;
 
   constructor(private bodyFacade: BodyFacade) {}
 

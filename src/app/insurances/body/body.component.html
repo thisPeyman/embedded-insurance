@@ -1,3 +1,4 @@
 <ng-container [ngSwitch]="flowStep$ | async">
   <app-car-detail *ngSwitchCase="1"></app-car-detail>
+  <app-car-price *ngSwitchCase="2"></app-car-price>
 </ng-container>
