@@ -18,9 +18,10 @@ import { bodyFeature } from './+state/body.reducer';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CarPriceComponent } from './components/car-price/car-price.component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { InquiryComponent } from './components/inquiry/inquiry.component';
 
 @NgModule({
-  declarations: [BodyComponent, CarDetailComponent, CarPriceComponent],
+  declarations: [BodyComponent, CarDetailComponent, CarPriceComponent, InquiryComponent],
   imports: [
     CommonModule,
     BodyRoutingModule,
