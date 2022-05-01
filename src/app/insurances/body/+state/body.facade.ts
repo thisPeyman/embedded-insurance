@@ -29,4 +29,8 @@ export class BodyFacade {
   prevFlow() {
     this.store.dispatch(BodyActions.prevFlow());
   }
+
+  resetFlow() {
+    this.store.dispatch(BodyActions.resetFlow());
+  }
 }
