@@ -11,7 +11,11 @@ export class BodyFacade {
   brands$ = this.store.select(BodySelectors.selectVehicleBrands);
   models$ = this.store.select(BodySelectors.selectVehicleModels);
   selectedVehicle$ = this.store.select(BodySelectors.selectSelectedVehicle);
-  priceInquiryBody$ = this.store.select(BodySelectors.selectInquiryReqBody);
+  priceInquiry$ = this.store.select(BodySelectors.selectPriceInquiry);
+  fullbodyOptions$ = this.store.select(BodySelectors.selectFullbodyOptions);
+
+  // These are for http requests
+  httpPriceInquiry$ = this.store.select(BodySelectors.selectInquiryReqBody);
 
   constructor(private store: Store) {}
 
@@ -26,16 +30,17 @@ export class BodyFacade {
   nextFlow() {
     this.store.dispatch(BodyActions.nextFlow());
   }
-
   prevFlow() {
     this.store.dispatch(BodyActions.prevFlow());
   }
-
   resetFlow() {
     this.store.dispatch(BodyActions.resetFlow());
   }
 
   inquiryPrice() {
     this.store.dispatch(BodyActions.inquiryPrice());
+  }
+  resetInquiry() {
+    this.store.dispatch(BodyActions.resetPriceInquiry());
   }
 }

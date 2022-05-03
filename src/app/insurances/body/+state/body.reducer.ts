@@ -1,4 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
+import { PriceInquiryResponse } from '../shared/PriceInquiry';
 import { SelectedVehicle } from '../shared/SelectedVehicle';
 import { Vehicle } from '../shared/VehiclesResponse';
 
@@ -8,6 +9,7 @@ interface State {
   vehicles: Vehicle[];
   flowStep: number;
   selectedVehicle: SelectedVehicle;
+  priceInquiry: PriceInquiryResponse | null;
 }
 
 const initialState: State = {
@@ -24,6 +26,7 @@ const initialState: State = {
     mainDiscountYears: 0,
     sideDiscountYears: 0,
   },
+  priceInquiry: null,
 };
 
 export const bodyFeature = createFeature({
@@ -46,6 +49,14 @@ export const bodyFeature = createFeature({
       ...state,
       flowStep: state.flowStep - 1,
     })),
-    on(BodyActions.resetFlow, (state) => ({ ...state, flowStep: 1 }))
+    on(BodyActions.resetFlow, (state) => ({ ...state, flowStep: 1 })),
+    on(BodyActions.inquiryPriceSuccess, (state, { inquiry }) => ({
+      ...state,
+      priceInquiry: inquiry,
+    })),
+    on(BodyActions.resetPriceInquiry, (state) => ({
+      ...state,
+      priceInquiry: null,
+    }))
   ),
 });

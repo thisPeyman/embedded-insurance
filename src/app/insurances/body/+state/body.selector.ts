@@ -1,9 +1,13 @@
 import { createSelector } from '@ngrx/store';
-import { PriceInquiryBody } from '../shared/PriceInquiryBody';
+import { FullbodyOptions, PriceInquiryBody } from '../shared/PriceInquiry';
 import { bodyFeature } from './body.reducer';
 
-export const { selectVehicles, selectFlowStep, selectSelectedVehicle } =
-  bodyFeature;
+export const {
+  selectVehicles,
+  selectFlowStep,
+  selectSelectedVehicle,
+  selectPriceInquiry,
+} = bodyFeature;
 
 export const selectVehicleBrands = createSelector(
   selectVehicles,
@@ -58,10 +62,23 @@ export const selectInquiryReqBody = createSelector(
   }
 );
 
-// {
-//   "vehicle_value": 1800000000,
-//   "vehicle_kind_id": 8972,
-//   "built_year": 1390,
-//   "basic_discount_years": 5,
-//   "additional_discount_years": 5
-// }
+export const selectFullbodyOptions = createSelector(
+  selectPriceInquiry,
+  (prices) => {
+    if (!prices) return null;
+    const fullbodyOptions: FullbodyOptions[] = [];
+    const fullbody = prices.price_inquiry.full_body;
+
+    for (const [key, value] of Object.entries(fullbody)) {
+      const isBasePrice = key === 'base_price';
+      fullbodyOptions.push({
+        key,
+        checked: isBasePrice,
+        disabled: isBasePrice,
+        price: value,
+      });
+    }
+
+    return fullbodyOptions;
+  }
+);

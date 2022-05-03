@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { PriceInquiryBody } from './PriceInquiryBody';
+import { PriceInquiryBody, PriceInquiryResponse } from './PriceInquiry';
 import { Vehicle } from './VehiclesResponse';
 
 @Injectable()
@@ -21,8 +21,9 @@ export class BodyService {
   }
 
   inquiryPrice(body: PriceInquiryBody) {
-    console.log(body);
-
-    return this.http.post(`${this.rootUrl}/price_inquiry`, body);
+    return this.http.post<PriceInquiryResponse>(
+      `${this.rootUrl}/price_inquiry`,
+      body
+    );
   }
 }

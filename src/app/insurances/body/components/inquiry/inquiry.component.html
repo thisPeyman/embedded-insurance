@@ -1,1 +1,44 @@
-<p>inquiry works!</p>
+<div
+  *ngIf="basePrices$ | async as basePrices; else loading"
+  class="grid grid-cols-1 lg:grid-cols-3 lg:mt-16 pb-32 lg:mb-0"
+>
+  <app-package-card title="پکیج کامل بیمه" [price]="fullbodyPrice">
+    <nz-checkbox-wrapper
+      (nzOnChange)="updateFullbody($event)"
+      class="flex flex-col pt-2 px-4"
+    >
+      <label
+        class="flex justify-between items-center"
+        nz-checkbox
+        *ngFor="let option of fullbodyOptions"
+        [nzDisabled]="option.disabled"
+        [nzChecked]="option.checked"
+        [nzValue]="option.key"
+        ><span>{{ option.key | optionName }}</span>
+        <span class="mx-2">{{ option.price | number: "1.0-0" }}</span></label
+      >
+    </nz-checkbox-wrapper>
+  </app-package-card>
+  <app-package-card
+    title="فقط پوشش سرقت کلی"
+    [price]="basePrices.price_inquiry.stealing.price"
+  >
+    <p class="text-center px-4 mt-2">
+      در این پکیج صرفا پوشش <b>سرقت کلی</b> برای خودرو درنظر گرفته می‌شود و
+      تمامی خسارات غیر از سرقت کلی از تعهدات بیمه‌گر خارج است
+    </p>
+  </app-package-card>
+  <app-package-card
+    title="پکیج سرقت (درجا و کلی)"
+    [price]="basePrices.price_inquiry.stealing_package.price"
+  >
+    <p class="text-center px-4 mt-2">
+      در این پکیج فقط پوشش‌های <b>سرقت کلی و سرقت درجا (10%) </b> برای خودرو
+      درنظر گرفته می‌شود
+    </p>
+  </app-package-card>
+</div>
+
+<ng-template #loading>
+  <p class="text-center mt-10 text-xl text-gray-600">درحال استعلام قیمت</p>
+</ng-template>

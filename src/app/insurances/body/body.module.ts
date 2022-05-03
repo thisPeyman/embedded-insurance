@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 import { BodyRoutingModule } from './body-routing.module';
 import { BodyComponent } from './body.component';
@@ -19,9 +20,18 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { CarPriceComponent } from './components/car-price/car-price.component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { InquiryComponent } from './components/inquiry/inquiry.component';
+import { PackageCardComponent } from './components/inquiry/package-card/package-card.component';
+import { OptionNamePipe } from './components/inquiry/option-name.pipe';
 
 @NgModule({
-  declarations: [BodyComponent, CarDetailComponent, CarPriceComponent, InquiryComponent],
+  declarations: [
+    BodyComponent,
+    CarDetailComponent,
+    CarPriceComponent,
+    InquiryComponent,
+    PackageCardComponent,
+    OptionNamePipe,
+  ],
   imports: [
     CommonModule,
     BodyRoutingModule,
@@ -34,6 +44,7 @@ import { InquiryComponent } from './components/inquiry/inquiry.component';
     EffectsModule.forFeature([BodyEffects]),
     StoreModule.forFeature(bodyFeature),
     NzSwitchModule,
+    NzCheckboxModule,
   ],
   providers: [BodyFacade, BodyService],
 })

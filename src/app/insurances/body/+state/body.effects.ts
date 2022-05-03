@@ -25,11 +25,11 @@ export class BodyEffects {
   inquiryPrice = createEffect(() =>
     this.actions$.pipe(
       ofType(BodyActions.inquiryPrice),
-      concatLatestFrom(() => this.bodyFacade.priceInquiryBody$),
+      concatLatestFrom(() => this.bodyFacade.httpPriceInquiry$),
       switchMap(([, value]) =>
         this.bodyService.inquiryPrice(value).pipe(
-          map((v) => {
-            return { type: 'Hello There' };
+          map((inquiry) => {
+            return BodyActions.inquiryPriceSuccess({ inquiry });
           })
         )
       )

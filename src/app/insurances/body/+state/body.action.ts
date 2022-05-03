@@ -1,6 +1,7 @@
 import { createAction, createFeature, props } from '@ngrx/store';
 import { Vehicle } from '../shared/VehiclesResponse';
 import { SelectedVehicle } from '../shared/SelectedVehicle';
+import { PriceInquiryResponse } from '../shared/PriceInquiry';
 
 export const loadVehicles = createAction(
   '[Body Insurance - Car Detail] Load Vehicles Data'
@@ -26,4 +27,11 @@ export const resetFlow = createAction('[Body Insurance] Go To Previous Flow');
 
 export const inquiryPrice = createAction(
   '[Body Insurance - Inquiry] Inquiry The Insurance Prices'
+);
+export const inquiryPriceSuccess = createAction(
+  '[Body Insurance - Inquiry] Price Inquiry Success',
+  props<{ inquiry: PriceInquiryResponse }>()
+);
+export const resetPriceInquiry = createAction(
+  '[Body Insurance - Inquiry] Reset State'
 );
