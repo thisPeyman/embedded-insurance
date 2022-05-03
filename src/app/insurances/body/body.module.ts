@@ -22,6 +22,7 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
 import { InquiryComponent } from './components/inquiry/inquiry.component';
 import { PackageCardComponent } from './components/inquiry/package-card/package-card.component';
 import { OptionNamePipe } from './components/inquiry/option-name.pipe';
+import { FullBodyPackageComponent } from './components/inquiry/full-body-package/full-body-package.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { OptionNamePipe } from './components/inquiry/option-name.pipe';
     InquiryComponent,
     PackageCardComponent,
     OptionNamePipe,
+    FullBodyPackageComponent,
   ],
   imports: [
     CommonModule,
