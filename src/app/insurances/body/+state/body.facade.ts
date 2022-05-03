@@ -11,6 +11,7 @@ export class BodyFacade {
   brands$ = this.store.select(BodySelectors.selectVehicleBrands);
   models$ = this.store.select(BodySelectors.selectVehicleModels);
   selectedVehicle$ = this.store.select(BodySelectors.selectSelectedVehicle);
+  priceInquiryBody$ = this.store.select(BodySelectors.selectInquiryReqBody);
 
   constructor(private store: Store) {}
 
@@ -32,5 +33,9 @@ export class BodyFacade {
 
   resetFlow() {
     this.store.dispatch(BodyActions.resetFlow());
+  }
+
+  inquiryPrice() {
+    this.store.dispatch(BodyActions.inquiryPrice());
   }
 }

@@ -23,3 +23,7 @@ export const updateVehicle = createAction(
 export const nextFlow = createAction('[Body Insurance] Go To Next Flow');
 export const prevFlow = createAction('[Body Insurance] Go To Previous Flow');
 export const resetFlow = createAction('[Body Insurance] Go To Previous Flow');
+
+export const inquiryPrice = createAction(
+  '[Body Insurance - Inquiry] Inquiry The Insurance Prices'
+);
