@@ -4,6 +4,7 @@
 >
   <app-full-body-package></app-full-body-package>
   <app-package-card
+    (purchase)="purchase()"
     title="فقط پوشش سرقت کلی"
     [price]="basePrices.price_inquiry.stealing.price"
   >
@@ -13,6 +14,7 @@
     </p>
   </app-package-card>
   <app-package-card
+    (purchase)="purchase()"
     title="پکیج سرقت (درجا و کلی)"
     [price]="basePrices.price_inquiry.stealing_package.price"
   >

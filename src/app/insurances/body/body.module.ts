@@ -23,6 +23,9 @@ import { InquiryComponent } from './components/inquiry/inquiry.component';
 import { PackageCardComponent } from './components/inquiry/package-card/package-card.component';
 import { OptionNamePipe } from './components/inquiry/option-name.pipe';
 import { FullBodyPackageComponent } from './components/inquiry/full-body-package/full-body-package.component';
+import { IdentityInfoComponent } from './components/identity-info/identity-info.component';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { AdditionalCarDetailComponent } from './components/additional-car-detail/additional-car-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,8 @@ import { FullBodyPackageComponent } from './components/inquiry/full-body-package
     PackageCardComponent,
     OptionNamePipe,
     FullBodyPackageComponent,
+    IdentityInfoComponent,
+    AdditionalCarDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -47,6 +52,8 @@ import { FullBodyPackageComponent } from './components/inquiry/full-body-package
     StoreModule.forFeature(bodyFeature),
     NzSwitchModule,
     NzCheckboxModule,
+    NzInputModule,
+    NzSelectModule,
   ],
   providers: [BodyFacade, BodyService],
 })

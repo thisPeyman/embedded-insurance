@@ -2,7 +2,10 @@
   <h2 class="text-center text-3xl">ارزش خودرو</h2>
 
   <form [formGroup]="form">
-    <app-input [control]="form.get('price')"></app-input>
+    <app-input
+      [control]="form.get('price')"
+      title="ارزش خودرو (تومان)"
+    ></app-input>
     <app-switch [control]="form.get('hasInsuranceHistory')"
       >آیا سابقه بیمه بدنه دارید؟</app-switch
     >

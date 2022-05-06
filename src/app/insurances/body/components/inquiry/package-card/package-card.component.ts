@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-package-card',
@@ -8,6 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class PackageCardComponent implements OnInit {
   @Input() title = '';
   @Input() price = 0;
+
+  @Output() purchase = new EventEmitter();
 
   constructor() {}
 

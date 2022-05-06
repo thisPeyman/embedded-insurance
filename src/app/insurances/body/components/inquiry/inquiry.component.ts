@@ -17,6 +17,10 @@ export class InquiryComponent implements OnInit, OnDestroy {
     this.bodyFacade.inquiryPrice();
   }
 
+  purchase() {
+    this.bodyFacade.nextFlow();
+  }
+
   ngOnDestroy(): void {
     this.bodyFacade.resetInquiry();
   }
