@@ -2,9 +2,11 @@
   *ngIf="basePrices$ | async as basePrices; else loading"
   class="grid grid-cols-1 lg:grid-cols-3 lg:mt-16 pb-32 lg:mb-0"
 >
-  <app-full-body-package></app-full-body-package>
+  <app-full-body-package
+    (purchase)="purchase('body', $event)"
+  ></app-full-body-package>
   <app-package-card
-    (purchase)="purchase()"
+    (purchase)="purchase('steal')"
     title="فقط پوشش سرقت کلی"
     [price]="basePrices.price_inquiry.stealing.price"
   >
@@ -14,7 +16,7 @@
     </p>
   </app-package-card>
   <app-package-card
-    (purchase)="purchase()"
+    (purchase)="purchase('steal_package')"
     title="پکیج سرقت (درجا و کلی)"
     [price]="basePrices.price_inquiry.stealing_package.price"
   >

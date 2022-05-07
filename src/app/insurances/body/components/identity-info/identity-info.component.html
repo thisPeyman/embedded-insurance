@@ -1,53 +1,59 @@
 <div class="pt-10 text-center">
   <h2 class="text-3xl">ثبت اطلاعات هویتی</h2>
-  <form [formGroup]="form"></form>
-  <app-input title="کد ملی" [control]="form.get('nationalCode')"></app-input>
-  <div class="flex items-center justify-center mt-5 px-3">
-    <p class="text-lg px-1 lg:px-4">تاریخ تولد</p>
-    <div class="flex w-3/4 gap-1 lg:flex-col lg:w-1/3">
-      <input
-        nz-input
-        [formControl]="$any(form).controls['dayOfBirth']"
-        nzSize="large"
-        type="number"
-        placeholder="روز"
-      />
-      <nz-select
-        nzPlaceHolder="ماه"
-        nzSize="large"
-        [formControl]="$any(form).controls['monthOfBirth']"
-      >
-        <nz-option
-          *ngFor="let month of months"
-          [nzValue]="month.value"
-          [nzLabel]="month.label"
-        ></nz-option>
-      </nz-select>
-      <input
-        nz-input
-        nzSize="large"
-        type="number"
-        placeholder="سال"
-        [formControl]="$any(form).controls['yearOfBirth']"
-      />
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <app-input title="کد ملی" [control]="form.get('national_code')"></app-input>
+    <div class="flex items-center justify-center mt-5 px-3">
+      <p class="text-lg px-1 lg:px-4">تاریخ تولد</p>
+      <div class="flex w-3/4 gap-1 lg:flex-col lg:w-1/3">
+        <input
+          nz-input
+          [formControl]="$any(form).controls['birth_day']"
+          nzSize="large"
+          type="number"
+          placeholder="روز"
+        />
+        <nz-select
+          nzPlaceHolder="ماه"
+          nzSize="large"
+          [formControl]="$any(form).controls['birth_month']"
+        >
+          <nz-option
+            *ngFor="let month of months"
+            [nzValue]="month.value"
+            [nzLabel]="month.label"
+          ></nz-option>
+        </nz-select>
+        <input
+          nz-input
+          nzSize="large"
+          type="number"
+          placeholder="سال"
+          [formControl]="$any(form).controls['birth_year']"
+        />
+      </div>
     </div>
-  </div>
 
-  <app-input title="کد پستی" [control]="form.get('postalCode')"></app-input>
-  <app-input dir="rtl" title="آدرس" [control]="form.get('address')"></app-input>
+    <app-input title="کد پستی" [control]="form.get('postal_code')"></app-input>
+    <app-input
+      dir="rtl"
+      title="آدرس"
+      [control]="form.get('address')"
+    ></app-input>
+    <app-input title="شماره موبایل" [control]="form.get('mobile')"></app-input>
 
-  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
-    <button
-      class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
-      (click)="prevFlow()"
-    >
-      مرحله‌ی قبل
-    </button>
-    <button
-      class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
-      (click)="nextFlow()"
-    >
-      مشاهده‌ قیمت
-    </button>
-  </div>
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+      <button
+        class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
+        (click)="prevFlow()"
+      >
+        مرحله‌ی قبل
+      </button>
+      <button
+        class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
+        type="submit"
+      >
+        مشاهده‌ قیمت
+      </button>
+    </div>
+  </form>
 </div>

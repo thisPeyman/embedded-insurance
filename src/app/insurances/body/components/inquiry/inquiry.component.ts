@@ -17,7 +17,11 @@ export class InquiryComponent implements OnInit, OnDestroy {
     this.bodyFacade.inquiryPrice();
   }
 
-  purchase() {
+  purchase(_package: string, additionalCovs?: string[]) {
+    this.bodyFacade.updateSelectedVehicle({
+      selectedPackage: _package,
+      additionalCovs,
+    });
     this.bodyFacade.nextFlow();
   }
 

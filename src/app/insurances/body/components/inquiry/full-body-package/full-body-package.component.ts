@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { skipWhile, take } from 'rxjs';
 import { BodyFacade } from '../../../+state/body.facade';
 import { FullbodyOptions } from '../../../shared/PriceInquiry';
@@ -13,7 +13,15 @@ export class FullBodyPackageComponent implements OnInit {
   fullbodyOptionsSelected: string[] = [];
   fullbodyPrice = 0;
 
+  @Output() purchase = new EventEmitter();
+
   constructor(private bodyFacade: BodyFacade) {}
+
+  submit() {
+    let options = [...this.fullbodyOptionsSelected];
+    options = options.filter((v) => v !== 'base_price');
+    this.purchase.emit(options);
+  }
 
   ngOnInit(): void {
     this.bodyFacade.fullbodyOptions$

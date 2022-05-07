@@ -1,4 +1,8 @@
-<app-package-card title="پکیج کامل بیمه" [price]="fullbodyPrice">
+<app-package-card
+  title="پکیج کامل بیمه"
+  [price]="fullbodyPrice"
+  (purchase)="submit()"
+>
   <nz-checkbox-wrapper
     (nzOnChange)="updateFullbody($event)"
     class="flex flex-col pt-2 px-4"

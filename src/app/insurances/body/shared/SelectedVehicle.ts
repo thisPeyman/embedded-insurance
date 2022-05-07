@@ -8,4 +8,6 @@ export interface SelectedVehicle {
   isBrandNew: boolean;
   mainDiscountYears: number;
   sideDiscountYears: number;
+  selectedPackage: string;
+  additionalCovs?: string[];
 }

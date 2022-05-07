@@ -2,6 +2,7 @@ import { createAction, createFeature, props } from '@ngrx/store';
 import { Vehicle } from '../shared/VehiclesResponse';
 import { SelectedVehicle } from '../shared/SelectedVehicle';
 import { PriceInquiryResponse } from '../shared/PriceInquiry';
+import { CustomerBody } from '../shared/Customer';
 
 export const loadVehicles = createAction(
   '[Body Insurance - Car Detail] Load Vehicles Data'
@@ -34,4 +35,13 @@ export const inquiryPriceSuccess = createAction(
 );
 export const resetPriceInquiry = createAction(
   '[Body Insurance - Inquiry] Reset State'
+);
+
+export const submitCustomer = createAction(
+  '[Body Insurance] Submit Customer to get ID',
+  props<{ customer: CustomerBody }>()
+);
+export const submitCustomerSuccess = createAction(
+  '[Body Insurance] Customer Submit Success',
+  props<{ id: string }>()
 );

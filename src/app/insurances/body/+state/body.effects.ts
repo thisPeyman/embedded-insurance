@@ -36,6 +36,24 @@ export class BodyEffects {
     )
   );
 
+  submitCustomer = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BodyActions.submitCustomer),
+      switchMap((data) =>
+        this.bodyService.sumbitCustomer(data.customer).pipe(
+          map(({ customer_id }) => {
+            this.bodyFacade.nextFlow();
+            return BodyActions.submitCustomerSuccess({ id: customer_id });
+          }),
+          catchError((e) => {
+            window.alert(e.message);
+            return of({ type: 'error in submitting customer' });
+          })
+        )
+      )
+    )
+  );
+
   constructor(
     private readonly actions$: Actions,
     private readonly bodyService: BodyService,

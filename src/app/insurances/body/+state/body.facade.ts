@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import * as BodySelectors from './body.selector';
 import * as BodyActions from './body.action';
 import { SelectedVehicle } from '../shared/SelectedVehicle';
+import { CustomerBody } from '../shared/Customer';
 
 @Injectable()
 export class BodyFacade {
@@ -42,5 +43,9 @@ export class BodyFacade {
   }
   resetInquiry() {
     this.store.dispatch(BodyActions.resetPriceInquiry());
+  }
+
+  submitCustomer(customer: CustomerBody) {
+    this.store.dispatch(BodyActions.submitCustomer({ customer }));
   }
 }

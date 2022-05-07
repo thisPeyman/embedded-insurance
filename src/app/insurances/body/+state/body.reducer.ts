@@ -10,11 +10,14 @@ interface State {
   flowStep: number;
   selectedVehicle: SelectedVehicle;
   priceInquiry: PriceInquiryResponse | null;
+  customerInfo: {
+    id: string;
+  };
 }
 
 const initialState: State = {
   vehicles: [],
-  flowStep: 4,
+  flowStep: 1,
   selectedVehicle: {
     brand: '',
     model: '',
@@ -25,6 +28,11 @@ const initialState: State = {
     price: 0,
     mainDiscountYears: 0,
     sideDiscountYears: 0,
+    selectedPackage: '',
+    additionalCovs: undefined,
+  },
+  customerInfo: {
+    id: '0',
   },
   priceInquiry: null,
 };
@@ -57,6 +65,10 @@ export const bodyFeature = createFeature({
     on(BodyActions.resetPriceInquiry, (state) => ({
       ...state,
       priceInquiry: null,
+    })),
+    on(BodyActions.submitCustomerSuccess, (state, { id }) => ({
+      ...state,
+      customerInfo: { id },
     }))
   ),
 });

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { CustomerBody } from './Customer';
 import { PriceInquiryBody, PriceInquiryResponse } from './PriceInquiry';
 import { Vehicle } from './VehiclesResponse';
 
@@ -23,6 +24,13 @@ export class BodyService {
   inquiryPrice(body: PriceInquiryBody) {
     return this.http.post<PriceInquiryResponse>(
       `${this.rootUrl}/price_inquiry`,
+      body
+    );
+  }
+
+  sumbitCustomer(body: CustomerBody) {
+    return this.http.post<{ customer_id: string; message: string }>(
+      `${this.rootUrl}/add_customer`,
       body
     );
   }

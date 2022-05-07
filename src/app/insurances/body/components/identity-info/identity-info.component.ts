@@ -26,20 +26,24 @@ export class IdentityInfoComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private bodyFacade: BodyFacade) {
     this.form = this.fb.group({
-      nationalCode: '',
-      phoneNumber: '',
-      dayOfBirth: '',
-      monthOfBirth: '',
-      yearOfBirth: '',
-      postalCode: '',
+      national_code: '',
+      mobile: '',
+      birth_day: '',
+      birth_month: '',
+      birth_year: '',
+      postal_code: '',
       address: '',
     });
   }
 
   ngOnInit(): void {}
 
-  nextFlow() {
-    this.bodyFacade.nextFlow();
+  submit(): void {
+    let formValue = { ...this.form.value };
+    formValue.tel = formValue.mobile;
+    formValue.city_id = 9131;
+
+    this.bodyFacade.submitCustomer(formValue);
   }
 
   prevFlow() {
