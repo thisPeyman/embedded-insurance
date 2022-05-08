@@ -1,4 +1,5 @@
-export interface CustomerBody {
+export interface Customer {
+  id: string;
   national_code: string;
   birth_year: number;
   birth_month: number;

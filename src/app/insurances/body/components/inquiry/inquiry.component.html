@@ -1,6 +1,6 @@
 <div
   *ngIf="basePrices$ | async as basePrices; else loading"
-  class="grid grid-cols-1 lg:grid-cols-3 lg:mt-16 pb-32 lg:mb-0"
+  class="grid grid-cols-1 lg:grid-cols-3 lg:mt-16 lg:mb-0"
 >
   <app-full-body-package
     (purchase)="purchase('body', $event)"
@@ -30,3 +30,11 @@
 <ng-template #loading>
   <p class="text-center mt-10 text-xl text-gray-600">درحال استعلام قیمت</p>
 </ng-template>
+<div class="pb-28">
+  <button
+    class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5 block"
+    (click)="bodyFacade.prevFlow()"
+  >
+    مرحله‌ی قبل
+  </button>
+</div>

@@ -28,6 +28,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { AdditionalCarDetailComponent } from './components/additional-car-detail/additional-car-detail.component';
 import { PrevCompanyComponent } from './components/prev-company/prev-company.component';
 import { IssuanceComponent } from './components/issuance/issuance.component';
+import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { IssuanceComponent } from './components/issuance/issuance.component';
     NzCheckboxModule,
     NzInputModule,
     NzSelectModule,
+    NgPersianDatepickerModule,
   ],
   providers: [BodyFacade, BodyService],
 })

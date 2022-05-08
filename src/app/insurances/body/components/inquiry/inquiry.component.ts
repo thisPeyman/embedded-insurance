@@ -11,7 +11,7 @@ import { BodyFacade } from '../../+state/body.facade';
 export class InquiryComponent implements OnInit, OnDestroy {
   basePrices$ = this.bodyFacade.priceInquiry$;
 
-  constructor(private bodyFacade: BodyFacade) {}
+  constructor(public bodyFacade: BodyFacade) {}
 
   ngOnInit(): void {
     this.bodyFacade.inquiryPrice();

@@ -1,4 +1,4 @@
-<form class="pt-10 text-center" [formGroup]="form" (ngSubmit)="submit()">
+<form class="pt-10 text-center pb-40" [formGroup]="form" (ngSubmit)="submit()">
   <h2 class="text-2xl">ثبت اطلاعات تکمیلی خودرو</h2>
   <div class="flex items-center justify-between px-20 pt-6">
     <nz-select
@@ -35,7 +35,7 @@
   <app-input [control]="form.get('motor_no')" title="شماره موتور"></app-input>
   <app-input [control]="form.get('vin')" title="شماره VIN"></app-input>
   <app-input [control]="form.get('chasis_no')" title="شماره شاسی"></app-input>
-  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 ">
     <button
       (click)="prevFlow()"
       class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
@@ -46,7 +46,7 @@
       class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
       type="submit"
     >
-      مشاهده‌ قیمت
+      تایید و ادامه
     </button>
   </div>
 </form>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { firstValueFrom, take } from 'rxjs';
 import { BodyFacade } from '../../+state/body.facade';
 
@@ -8,6 +9,8 @@ import { BodyFacade } from '../../+state/body.facade';
   styleUrls: ['./prev-company.component.scss'],
 })
 export class PrevCompanyComponent implements OnInit {
+  dateValue = new FormControl();
+
   constructor(private bodyFacade: BodyFacade) {}
 
   ngOnInit() {

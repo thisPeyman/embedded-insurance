@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import * as BodySelectors from './body.selector';
 import * as BodyActions from './body.action';
 import { SelectedVehicle } from '../shared/SelectedVehicle';
-import { CustomerBody } from '../shared/Customer';
+import { Customer } from '../shared/Customer';
 
 @Injectable()
 export class BodyFacade {
@@ -14,6 +14,7 @@ export class BodyFacade {
   selectedVehicle$ = this.store.select(BodySelectors.selectSelectedVehicle);
   priceInquiry$ = this.store.select(BodySelectors.selectPriceInquiry);
   fullbodyOptions$ = this.store.select(BodySelectors.selectFullbodyOptions);
+  customerInfo$ = this.store.select(BodySelectors.selectCustomerInfo);
 
   // These are for http requests
   httpPriceInquiry$ = this.store.select(BodySelectors.selectInquiryReqBody);
@@ -45,7 +46,7 @@ export class BodyFacade {
     this.store.dispatch(BodyActions.resetPriceInquiry());
   }
 
-  submitCustomer(customer: CustomerBody) {
+  submitCustomer(customer: Partial<Customer>) {
     this.store.dispatch(BodyActions.submitCustomer({ customer }));
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { firstValueFrom } from 'rxjs';
 import { BodyFacade } from '../../+state/body.facade';
 
 @Component({
@@ -36,7 +37,9 @@ export class IdentityInfoComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateForm()
+  }
 
   submit(): void {
     let formValue = { ...this.form.value };
@@ -48,5 +51,29 @@ export class IdentityInfoComponent implements OnInit {
 
   prevFlow() {
     this.bodyFacade.prevFlow();
+  }
+
+  async updateForm() {
+    let formValue = await firstValueFrom(this.bodyFacade.customerInfo$);
+
+    const {
+      address,
+      national_code,
+      mobile,
+      birth_day,
+      birth_month,
+      birth_year,
+      postal_code,
+    } = formValue;
+
+    this.form.setValue({
+      address,
+      national_code,
+      mobile,
+      birth_day: birth_day || '',
+      birth_month,
+      birth_year: birth_year || '',
+      postal_code,
+    });
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Subscription, take } from 'rxjs';
+import { firstValueFrom, Subscription, take } from 'rxjs';
 import { BodyFacade } from '../../+state/body.facade';
 import { SelectedVehicle } from '../../shared/SelectedVehicle';
 
@@ -44,12 +44,8 @@ export class CarDetailComponent implements OnInit {
     this.bodyFacade.nextFlow();
   }
 
-  setFormValues() {
-    let formValue: Partial<SelectedVehicle> = {};
-
-    this.bodyFacade.selectedVehicle$
-      .pipe(take(1))
-      .subscribe((v) => (formValue = v));
+  async setFormValues() {
+    let formValue = await firstValueFrom(this.bodyFacade.selectedVehicle$);
 
     const { brand, model, usage, builtYear } = formValue;
 
