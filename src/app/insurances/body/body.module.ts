@@ -26,6 +26,8 @@ import { FullBodyPackageComponent } from './components/inquiry/full-body-package
 import { IdentityInfoComponent } from './components/identity-info/identity-info.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { AdditionalCarDetailComponent } from './components/additional-car-detail/additional-car-detail.component';
+import { PrevCompanyComponent } from './components/prev-company/prev-company.component';
+import { IssuanceComponent } from './components/issuance/issuance.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { AdditionalCarDetailComponent } from './components/additional-car-detail
     FullBodyPackageComponent,
     IdentityInfoComponent,
     AdditionalCarDetailComponent,
+    PrevCompanyComponent,
+    IssuanceComponent,
   ],
   imports: [
     CommonModule,
