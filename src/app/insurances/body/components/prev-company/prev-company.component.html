@@ -1,5 +1,56 @@
-<!-- <ng-persian-datepicker [timeEnable]="false" dateFormat="jYYYY-jMM-jDD">
-  <input type="text" [formControl]="dateValue" />
-</ng-persian-datepicker>
+<form [formGroup]="form" class="pt-10 pb-32 text-center" (ngSubmit)="submit()">
+  <h2 class="text-2xl">اطلاعات بیمه نامه قبلی</h2>
 
-{{ dateValue.value | json }} -->
+  <div class="flex justify-center gap-5 items-center px-3 mt-7">
+    <p class="text-lg">شرکت بیمه نامه قبلی</p>
+    <nz-select formControlName="previous_insurance_corp_id">
+      <nz-option nzLabel="بیمه" [nzValue]="321"></nz-option>
+    </nz-select>
+  </div>
+
+  <app-input
+    title="شماره بیمه نامه قبلی"
+    [control]="form.get('previous_policy_no')"
+    type="number"
+  ></app-input>
+
+  <div
+    class="flex justify-between items-center px-4 lg:justify-center lg:gap-20 mt-5"
+  >
+    <p class="text-lg">تاریخ شروع بیمه نامه قبلی</p>
+    <ng-persian-datepicker [timeEnable]="false" dateFormat="jYYYY-jMM-jDD">
+      <input
+        type="text"
+        formControlName="previous_policy_begin_date"
+        class="p-2 bg-blue-300 rounded-lg"
+      />
+    </ng-persian-datepicker>
+  </div>
+  <div
+    class="flex justify-between items-center px-4 lg:justify-center lg:gap-20 mt-5"
+  >
+    <p class="text-lg">تاریخ اتمام بیمه نامه قبلی</p>
+    <ng-persian-datepicker [timeEnable]="false" dateFormat="jYYYY-jMM-jDD">
+      <input
+        type="text"
+        formControlName="previous_policy_end_date"
+        class="p-2 bg-blue-300 rounded-lg"
+      />
+    </ng-persian-datepicker>
+  </div>
+
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <button
+      class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
+      (click)="bodyFacade.prevFlow()"
+    >
+      مرحله‌ی قبل
+    </button>
+    <button
+      class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
+      type="submit"
+    >
+      تایید و ادامه
+    </button>
+  </div>
+</form>

@@ -3,7 +3,11 @@ import { Store } from '@ngrx/store';
 
 import * as BodySelectors from './body.selector';
 import * as BodyActions from './body.action';
-import { SelectedVehicle } from '../shared/SelectedVehicle';
+import {
+  AdditionalInfo,
+  InsuranceHistory,
+  SelectedVehicle,
+} from '../shared/SelectedVehicle';
 import { Customer } from '../shared/Customer';
 
 @Injectable()
@@ -27,6 +31,12 @@ export class BodyFacade {
 
   updateSelectedVehicle(vehicle: Partial<SelectedVehicle>) {
     this.store.dispatch(BodyActions.updateVehicle({ vehicle }));
+  }
+  updateVehicleAddDetail(data: AdditionalInfo) {
+    this.store.dispatch(BodyActions.updateVehicleAdditional({ data }));
+  }
+  updateVehicleHistory(data: InsuranceHistory) {
+    this.store.dispatch(BodyActions.updateVehicleHistory({ data }));
   }
 
   nextFlow() {

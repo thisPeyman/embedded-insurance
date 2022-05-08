@@ -28,7 +28,6 @@ const initialState: State = {
     mainDiscountYears: 0,
     sideDiscountYears: 0,
     selectedPackage: '',
-    additionalCovs: undefined,
   },
   customerInfo: {
     address: '',
@@ -56,6 +55,20 @@ export const bodyFeature = createFeature({
     on(BodyActions.updateVehicle, (state, action) => ({
       ...state,
       selectedVehicle: { ...state.selectedVehicle, ...action.vehicle },
+    })),
+    on(BodyActions.updateVehicleAdditional, (state, { data }) => ({
+      ...state,
+      selectedVehicle: {
+        ...state.selectedVehicle,
+        additionalInfo: { ...data },
+      },
+    })),
+    on(BodyActions.updateVehicleHistory, (state, { data }) => ({
+      ...state,
+      selectedVehicle: {
+        ...state.selectedVehicle,
+        insuranceHistory: { ...data },
+      },
     })),
     on(BodyActions.nextFlow, (state) => ({
       ...state,

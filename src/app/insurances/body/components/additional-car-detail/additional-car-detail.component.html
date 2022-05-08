@@ -1,12 +1,14 @@
 <form class="pt-10 text-center pb-40" [formGroup]="form" (ngSubmit)="submit()">
   <h2 class="text-2xl">ثبت اطلاعات تکمیلی خودرو</h2>
   <div class="flex items-center justify-between px-20 pt-6">
-    <nz-select
-      formControlName="color_id"
-      nzPlaceHolder="رنگ"
-      nzSize="large"
-    ></nz-select>
-    <nz-select nzPlaceHolder="نوع سوخت" nzSize="large"></nz-select>
+    <nz-select formControlName="color_id" nzPlaceHolder="رنگ" nzSize="large">
+      <nz-option [nzValue]="1" nzLabel="سفید"></nz-option>
+    </nz-select>
+    <nz-select nzPlaceHolder="نوع سوخت" nzSize="large">
+      <nz-option nzLabel="بنزینی" nzValue="1"></nz-option>
+      <nz-option nzLabel="گازوئیلی" nzValue="2"></nz-option>
+      <nz-option nzLabel="دوگانه سوز" nzValue="3"></nz-option>
+    </nz-select>
   </div>
 
   <p class="text-lg mt-6">مشخصات پلاک</p>
@@ -20,10 +22,13 @@
       type="number"
     />
     <input nz-input placeholder="555" type="number" />
-    <nz-select
-      formControlName="plaque_middle_char_id"
-      nzPlaceHolder="الف"
-    ></nz-select>
+    <nz-select formControlName="plaque_middle_char_id" nzPlaceHolder="الف">
+      <nz-option
+        *ngFor="let option of plaqueOptions | async"
+        [nzValue]="option.Id"
+        [nzLabel]="option.Caption"
+      ></nz-option>
+    </nz-select>
     <input
       formControlName="plaque_left_no"
       nz-input
@@ -35,7 +40,7 @@
   <app-input [control]="form.get('motor_no')" title="شماره موتور"></app-input>
   <app-input [control]="form.get('vin')" title="شماره VIN"></app-input>
   <app-input [control]="form.get('chasis_no')" title="شماره شاسی"></app-input>
-  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 ">
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
     <button
       (click)="prevFlow()"
       class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"

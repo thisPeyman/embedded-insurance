@@ -34,4 +34,10 @@ export class BodyService {
       body
     );
   }
+
+  getPlaqueOptions() {
+    return this.http.get<{ Caption: string; Id: number }[]>(
+      'assets/data/message.json'
+    );
+  }
 }

@@ -1,6 +1,10 @@
 import { createAction, createFeature, props } from '@ngrx/store';
 import { Vehicle } from '../shared/VehiclesResponse';
-import { SelectedVehicle } from '../shared/SelectedVehicle';
+import {
+  AdditionalInfo,
+  InsuranceHistory,
+  SelectedVehicle,
+} from '../shared/SelectedVehicle';
 import { PriceInquiryResponse } from '../shared/PriceInquiry';
 import { Customer } from '../shared/Customer';
 
@@ -20,6 +24,14 @@ export const loadVehiclesError = createAction(
 export const updateVehicle = createAction(
   '[Body Insurance - Car Detail] Update Selected Vehicle',
   props<{ vehicle: Partial<SelectedVehicle> }>()
+);
+export const updateVehicleAdditional = createAction(
+  '[Body Insurance - Additional Car Detail] Submit Detail',
+  props<{ data: AdditionalInfo }>()
+);
+export const updateVehicleHistory = createAction(
+  '[Body Insurance - Additional Car Detail] Submit Previous History',
+  props<{ data: InsuranceHistory }>()
 );
 
 export const nextFlow = createAction('[Body Insurance] Go To Next Flow');
