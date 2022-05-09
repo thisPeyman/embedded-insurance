@@ -13,20 +13,40 @@
       >آیا ماشین شما صفر کیلومتر است؟</app-switch
     >
     <ng-container *ngIf="hasHistory">
-      <app-select-item
-        [options]="discountYears"
-        [control]="form.get('mainDiscountYears')"
-      >
+      <div class="flex justify-center gap-5 items-center px-3 mt-7">
         <p class="text-base">میزان تخفیف عدم خسارت <br />پوشش های اصلی (سال)</p>
-      </app-select-item>
-      <app-select-item
-        [options]="discountYears"
-        [control]="form.get('sideDiscountYears')"
-      >
+        <nz-select
+          nzShowSearch
+          formControlName="mainDiscountYears"
+          nzSize="large"
+          class="text-lg w-1/2"
+        >
+          <nz-option nzLabel="با خسارت" [nzValue]="0"></nz-option>
+          <nz-option
+            *ngFor="let option of discountYears"
+            [nzLabel]="option"
+            [nzValue]="option"
+          ></nz-option>
+        </nz-select>
+      </div>
+      <div class="flex justify-center gap-5 items-center px-3 mt-7">
         <p class="text-base">
           میزان تخفیف عدم خسارت <br />پوشش های اضافی (سال)
-        </p></app-select-item
-      >
+        </p>
+        <nz-select
+          nzShowSearch
+          formControlName="sideDiscountYears"
+          nzSize="large"
+          class="text-lg w-1/2"
+        >
+          <nz-option nzLabel="با خسارت" [nzValue]="0"></nz-option>
+          <nz-option
+            *ngFor="let option of discountYears"
+            [nzLabel]="option"
+            [nzValue]="option"
+          ></nz-option>
+        </nz-select>
+      </div>
     </ng-container>
   </form>
 

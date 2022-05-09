@@ -55,8 +55,8 @@ export class CarPriceComponent implements OnInit {
       price,
       hasInsuranceHistory,
       isBrandNew,
-      mainDiscountYears,
-      sideDiscountYears,
+      mainDiscountYears: mainDiscountYears ? mainDiscountYears : '',
+      sideDiscountYears: sideDiscountYears ? sideDiscountYears : '',
     });
   }
 }
