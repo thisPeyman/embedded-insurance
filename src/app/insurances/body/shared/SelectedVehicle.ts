@@ -12,6 +12,7 @@ export interface SelectedVehicle {
   additionalCovs?: string[];
   additionalInfo?: AdditionalInfo;
   insuranceHistory?: InsuranceHistory;
+  inquiryId?: number;
 }
 
 export interface AdditionalInfo {

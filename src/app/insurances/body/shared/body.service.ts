@@ -40,4 +40,9 @@ export class BodyService {
       'assets/data/message.json'
     );
   }
+
+  issuance(body: any) {
+    console.log(body);
+    return this.http.post(`${this.rootUrl}/issue_policy`, body);
+  }
 }

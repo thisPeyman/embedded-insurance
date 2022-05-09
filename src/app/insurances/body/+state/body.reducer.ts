@@ -16,7 +16,7 @@ interface State {
 
 const initialState: State = {
   vehicles: [],
-  flowStep: 5,
+  flowStep: 1,
   selectedVehicle: {
     brand: '',
     model: '',
@@ -82,6 +82,10 @@ export const bodyFeature = createFeature({
     on(BodyActions.inquiryPriceSuccess, (state, { inquiry }) => ({
       ...state,
       priceInquiry: inquiry,
+      selectedVehicle: {
+        ...state.selectedVehicle,
+        inquiryId: inquiry.inquiry_id,
+      },
     })),
     on(BodyActions.resetPriceInquiry, (state) => ({
       ...state,

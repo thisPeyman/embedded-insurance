@@ -22,6 +22,7 @@ export class BodyFacade {
 
   // These are for http requests
   httpPriceInquiry$ = this.store.select(BodySelectors.selectInquiryReqBody);
+  httpIssuance$ = this.store.select(BodySelectors.selectIssuanceReqBody);
 
   constructor(private store: Store) {}
 
@@ -58,5 +59,9 @@ export class BodyFacade {
 
   submitCustomer(customer: Partial<Customer>) {
     this.store.dispatch(BodyActions.submitCustomer({ customer }));
+  }
+
+  issuance() {
+    this.store.dispatch(BodyActions.issuance());
   }
 }

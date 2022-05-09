@@ -21,12 +21,13 @@ export class PrevCompanyComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.checkPrevInsurance();
+    this.checkPrevInsurance();
     this.updateForm();
   }
 
   submit() {
     this.bodyFacade.updateVehicleHistory(this.form.value);
+    this.bodyFacade.nextFlow();
   }
 
   checkPrevInsurance() {

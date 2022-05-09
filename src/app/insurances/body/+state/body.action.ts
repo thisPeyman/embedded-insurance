@@ -57,3 +57,5 @@ export const customerSuccess = createAction(
   '[Body Insurance] Customer Get Id Success',
   props<{ id: string }>()
 );
+
+export const issuance = createAction('[Body Insurance] Issuance');

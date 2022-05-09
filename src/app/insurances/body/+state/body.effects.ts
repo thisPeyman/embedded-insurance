@@ -54,6 +54,18 @@ export class BodyEffects {
     )
   );
 
+  issuance = createEffect(() =>
+    this.actions$.pipe(
+      ofType(BodyActions.issuance),
+      concatLatestFrom(() => this.bodyFacade.httpIssuance$),
+      switchMap(([, value]) =>
+        this.bodyService
+          .issuance(value)
+          .pipe(map((value) => ({ type: 'success' })))
+      )
+    )
+  );
+
   constructor(
     private readonly actions$: Actions,
     private readonly bodyService: BodyService,
