@@ -4,7 +4,7 @@
   >
     <h2 class="text-inherit">{{ title }}</h2>
     <p class="bg-gray-50 py-1 px-2 text-gray-600 rounded-sm">
-      {{ price | number }}
+      {{ price | number: "1.0-0" }}
     </p>
   </div>
   <ng-content></ng-content>

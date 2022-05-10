@@ -27,8 +27,8 @@ import { IdentityInfoComponent } from './components/identity-info/identity-info.
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { AdditionalCarDetailComponent } from './components/additional-car-detail/additional-car-detail.component';
 import { PrevCompanyComponent } from './components/prev-company/prev-company.component';
-import { IssuanceComponent } from './components/issuance/issuance.component';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
+import { PaymentComponent } from './components/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
     IdentityInfoComponent,
     AdditionalCarDetailComponent,
     PrevCompanyComponent,
-    IssuanceComponent,
+    PaymentComponent,
   ],
   imports: [
     CommonModule,
