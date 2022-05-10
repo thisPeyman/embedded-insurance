@@ -16,7 +16,7 @@ interface State {
 
 const initialState: State = {
   vehicles: [],
-  flowStep: 7,
+  flowStep: 1,
   selectedVehicle: {
     brand: '',
     model: '',
