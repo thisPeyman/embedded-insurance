@@ -3,7 +3,10 @@
 
   <div class="flex justify-center gap-5 items-center px-3 mt-7">
     <p class="text-lg">شرکت بیمه نامه قبلی</p>
-    <nz-select formControlName="previous_insurance_corp_id">
+    <nz-select
+      formControlName="previous_insurance_corp_id"
+      nzPlaceHolder="نام شرکت"
+    >
       <nz-option nzLabel="بیمه" [nzValue]="321"></nz-option>
     </nz-select>
   </div>
@@ -11,7 +14,7 @@
   <app-input
     title="شماره بیمه نامه قبلی"
     [control]="form.get('previous_policy_no')"
-    type="number"
+    type="text"
   ></app-input>
 
   <div
