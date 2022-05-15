@@ -21,7 +21,12 @@
       placeholder="55"
       type="number"
     />
-    <input nz-input placeholder="555" type="number" />
+    <input
+      nz-input
+      placeholder="555"
+      type="number"
+      formControlName="plaque_right_no"
+    />
     <nz-select formControlName="plaque_middle_char_id" nzPlaceHolder="الف">
       <nz-option
         *ngFor="let option of plaqueOptions | async"

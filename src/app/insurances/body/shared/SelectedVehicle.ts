@@ -18,6 +18,7 @@ export interface SelectedVehicle {
 export interface AdditionalInfo {
   color_id: number;
   plaque_left_no: number;
+  plaque_right_no: number;
   plaque_middle_char_id: number;
   plaque_serial: number;
   motor_no: string;

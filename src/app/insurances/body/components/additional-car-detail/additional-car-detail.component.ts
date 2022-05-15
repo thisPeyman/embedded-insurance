@@ -21,6 +21,7 @@ export class AdditionalCarDetailComponent implements OnInit {
     this.form = this.fb.group({
       color_id: '',
       plaque_left_no: '',
+      plaque_right_no: '',
       plaque_middle_char_id: '',
       plaque_serial: '',
       motor_no: '',

@@ -104,6 +104,7 @@ export const selectIssuanceReqBody = createSelector(
       color_id: vehicle.additionalInfo?.color_id,
       motor_no: vehicle.additionalInfo?.motor_no,
       plaque_left_no: vehicle.additionalInfo?.plaque_left_no,
+      plaque_right_no: vehicle.additionalInfo?.plaque_right_no,
       plaque_middle_char_id: vehicle.additionalInfo?.plaque_middle_char_id,
       plaque_serial: vehicle.additionalInfo?.plaque_serial,
       chasis_no: vehicle.additionalInfo?.chasis_no,
