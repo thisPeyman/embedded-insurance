@@ -29,6 +29,8 @@ import { AdditionalCarDetailComponent } from './components/additional-car-detail
 import { PrevCompanyComponent } from './components/prev-company/prev-company.component';
 import { NgPersianDatepickerModule } from 'ng-persian-datepicker';
 import { PaymentComponent } from './components/payment/payment.component';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
+import { PaymentSuccessResolver } from './components/payment-success/payment-success.resolver';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import { PaymentComponent } from './components/payment/payment.component';
     AdditionalCarDetailComponent,
     PrevCompanyComponent,
     PaymentComponent,
+    PaymentSuccessComponent,
   ],
   imports: [
     CommonModule,
@@ -61,6 +64,6 @@ import { PaymentComponent } from './components/payment/payment.component';
     NzSelectModule,
     NgPersianDatepickerModule,
   ],
-  providers: [BodyFacade, BodyService],
+  providers: [BodyFacade, BodyService, PaymentSuccessResolver],
 })
 export class BodyModule {}
