@@ -92,7 +92,7 @@ export const selectIssuanceReqBody = createSelector(
       insurance_package: vehicle.selectedPackage,
       additional_covs: vehicle.additionalCovs,
       inquiry_id: vehicle.inquiryId,
-      cutomer_id: customer.id,
+      customer_id: customer.id,
       national_code: customer.national_code,
       previous_policy_begin_date:
         vehicle.insuranceHistory?.previous_policy_begin_date,
