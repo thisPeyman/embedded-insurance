@@ -4,7 +4,8 @@
   <form [formGroup]="form">
     <app-input
       [control]="form.get('price')"
-      title="ارزش خودرو (تومان)"
+      title="ارزش خودرو (ریال)"
+      type="number"
     ></app-input>
     <app-switch [control]="form.get('hasInsuranceHistory')"
       >آیا سابقه بیمه بدنه دارید؟</app-switch
@@ -27,6 +28,7 @@
             [nzLabel]="option"
             [nzValue]="option"
           ></nz-option>
+          <nz-option nzLabel="بیشتر" [nzValue]="6"></nz-option>
         </nz-select>
       </div>
       <div class="flex justify-center gap-5 items-center px-3 mt-7">
@@ -45,6 +47,7 @@
             [nzLabel]="option"
             [nzValue]="option"
           ></nz-option>
+          <nz-option nzLabel="بیشتر" [nzValue]="6"></nz-option>
         </nz-select>
       </div>
     </ng-container>

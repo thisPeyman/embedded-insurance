@@ -11,7 +11,7 @@ import { SelectedVehicle } from '../../shared/SelectedVehicle';
 })
 export class CarPriceComponent implements OnInit {
   form: FormGroup;
-  discountYears = [1, 2, 3, 4, 5, 6, 7, 8];
+  discountYears = [1, 2, 3, 4, 5];
 
   get hasHistory(): boolean {
     return this.form.value.hasInsuranceHistory;

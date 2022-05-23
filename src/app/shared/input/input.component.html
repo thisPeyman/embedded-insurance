@@ -7,5 +7,14 @@
     [formControl]="control"
     [type]="type"
     [dir]="dir"
+    *ngIf="type !== 'number'"
   />
+  <nz-input-number
+    [nzFormatter]="numberInputFormat"
+    *ngIf="type === 'number'"
+    [formControl]="control"
+    class="text-lg w-1/2"
+    dir="ltr"
+  >
+  </nz-input-number>
 </div>

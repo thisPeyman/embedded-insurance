@@ -10,6 +10,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { InputComponent } from './input/input.component';
 import { SwitchComponent } from './switch/switch.component';
 import { NzSwitchModule } from 'ng-zorro-antd/switch';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NzSwitchModule } from 'ng-zorro-antd/switch';
     NzInputModule,
     ReactiveFormsModule,
     NzSwitchModule,
+    NzInputNumberModule,
   ],
   exports: [
     HeaderComponent,

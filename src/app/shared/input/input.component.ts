@@ -14,4 +14,8 @@ export class InputComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  numberInputFormat(value: number): string {
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 }
