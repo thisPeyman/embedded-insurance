@@ -1,0 +1,17 @@
+<div class="flex justify-center gap-5 items-center px-3 mt-7">
+  <h3 class="text-lg">
+    <ng-content></ng-content>
+  </h3>
+  <nz-select
+    nzShowSearch
+    [formControl]="control"
+    nzSize="large"
+    class="text-lg w-1/2"
+  >
+    <nz-option
+      *ngFor="let option of options"
+      [nzLabel]="option"
+      [nzValue]="option"
+    ></nz-option>
+  </nz-select>
+</div>

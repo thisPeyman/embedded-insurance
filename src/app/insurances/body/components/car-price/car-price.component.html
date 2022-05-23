@@ -1,0 +1,67 @@
+<div class="relative pt-10 text-center">
+  <h2 class="text-center text-3xl">ارزش خودرو</h2>
+
+  <form [formGroup]="form">
+    <app-input
+      [control]="form.get('price')"
+      title="ارزش خودرو (تومان)"
+    ></app-input>
+    <app-switch [control]="form.get('hasInsuranceHistory')"
+      >آیا سابقه بیمه بدنه دارید؟</app-switch
+    >
+    <app-switch [control]="form.get('isBrandNew')" *ngIf="!hasHistory"
+      >آیا ماشین شما صفر کیلومتر است؟</app-switch
+    >
+    <ng-container *ngIf="hasHistory">
+      <div class="flex justify-center gap-5 items-center px-3 mt-7">
+        <p class="text-base">میزان تخفیف عدم خسارت <br />پوشش های اصلی (سال)</p>
+        <nz-select
+          nzShowSearch
+          formControlName="mainDiscountYears"
+          nzSize="large"
+          class="text-lg w-1/2"
+        >
+          <nz-option nzLabel="با خسارت" [nzValue]="0"></nz-option>
+          <nz-option
+            *ngFor="let option of discountYears"
+            [nzLabel]="option"
+            [nzValue]="option"
+          ></nz-option>
+        </nz-select>
+      </div>
+      <div class="flex justify-center gap-5 items-center px-3 mt-7">
+        <p class="text-base">
+          میزان تخفیف عدم خسارت <br />پوشش های اضافی (سال)
+        </p>
+        <nz-select
+          nzShowSearch
+          formControlName="sideDiscountYears"
+          nzSize="large"
+          class="text-lg w-1/2"
+        >
+          <nz-option nzLabel="با خسارت" [nzValue]="0"></nz-option>
+          <nz-option
+            *ngFor="let option of discountYears"
+            [nzLabel]="option"
+            [nzValue]="option"
+          ></nz-option>
+        </nz-select>
+      </div>
+    </ng-container>
+  </form>
+
+  <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+    <button
+      class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
+      (click)="prevFlow()"
+    >
+      مرحله‌ی قبل
+    </button>
+    <button
+      class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
+      (click)="nextFlow()"
+    >
+      مشاهده‌ قیمت
+    </button>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div
+  *ngIf="basePrices$ | async as basePrices; else loading"
+  class="grid grid-cols-1 lg:grid-cols-3 lg:mt-16 lg:mb-0"
+>
+  <app-full-body-package
+    (purchase)="purchase('body', $event)"
+  ></app-full-body-package>
+  <app-package-card
+    (purchase)="purchase('steal')"
+    title="فقط پوشش سرقت کلی"
+    [price]="basePrices.price_inquiry.stealing.price"
+  >
+    <p class="text-center px-4 mt-2">
+      در این پکیج صرفا پوشش <b>سرقت کلی</b> برای خودرو درنظر گرفته می‌شود و
+      تمامی خسارات غیر از سرقت کلی از تعهدات بیمه‌گر خارج است
+    </p>
+  </app-package-card>
+  <app-package-card
+    (purchase)="purchase('steal_package')"
+    title="پکیج سرقت (درجا و کلی)"
+    [price]="basePrices.price_inquiry.stealing_package.price"
+  >
+    <p class="text-center px-4 mt-2">
+      در این پکیج فقط پوشش‌های <b>سرقت کلی و سرقت درجا (10%) </b> برای خودرو
+      درنظر گرفته می‌شود
+    </p>
+  </app-package-card>
+</div>
+
+<ng-template #loading>
+  <p class="text-center mt-10 text-xl text-gray-600">درحال استعلام قیمت</p>
+</ng-template>
+<div class="pb-28">
+  <button
+    class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5 block"
+    (click)="bodyFacade.prevFlow()"
+  >
+    مرحله‌ی قبل
+  </button>
+</div>

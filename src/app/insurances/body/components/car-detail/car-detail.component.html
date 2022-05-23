@@ -1,0 +1,25 @@
+<div class="relative pt-10 text-center">
+  <h2 class="text-center text-3xl">مشخصات اولیه ماشین</h2>
+
+  <form [formGroup]="form">
+    <app-select-item [options]="brands$ | async" [control]="form.get('brand')"
+      >برند خودرو</app-select-item
+    >
+    <app-select-item [options]="models$ | async" [control]="form.get('model')"
+      >مدل خودرو</app-select-item
+    >
+    <app-select-item [options]="usages" [control]="form.get('usage')"
+      >کاربری خودرو</app-select-item
+    >
+    <app-select-item [options]="yearsList" [control]="form.get('builtYear')"
+      >سال ساخت</app-select-item
+    >
+  </form>
+
+  <button
+    class="bg-green-600 text-gray-50 py-3 px-4 mt-10 rounded-sm shadow-sm text-lg"
+    (click)="nextFlow()"
+  >
+    ثبت و ادامه
+  </button>
+</div>

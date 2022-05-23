@@ -1,0 +1,184 @@
+[
+    {
+        "Caption": "الف",
+        "Id": 1,
+        "IsActive": 1,
+        "LetterPlaqueCode": "01",
+        "Name": null
+    },
+    {
+        "Caption": "ب",
+        "Id": 2,
+        "IsActive": 1,
+        "LetterPlaqueCode": "02",
+        "Name": null
+    },
+    {
+        "Caption": "ت",
+        "Id": 3,
+        "IsActive": 1,
+        "LetterPlaqueCode": "03",
+        "Name": null
+    },
+    {
+        "Caption": "ج",
+        "Id": 4,
+        "IsActive": 1,
+        "LetterPlaqueCode": "04",
+        "Name": null
+    },
+    {
+        "Caption": "د",
+        "Id": 5,
+        "IsActive": 1,
+        "LetterPlaqueCode": "05",
+        "Name": null
+    },
+    {
+        "Caption": "س",
+        "Id": 6,
+        "IsActive": 1,
+        "LetterPlaqueCode": "06",
+        "Name": null
+    },
+    {
+        "Caption": "ص",
+        "Id": 7,
+        "IsActive": 1,
+        "LetterPlaqueCode": "07",
+        "Name": null
+    },
+    {
+        "Caption": "ط",
+        "Id": 8,
+        "IsActive": 1,
+        "LetterPlaqueCode": "08",
+        "Name": null
+    },
+    {
+        "Caption": "ع",
+        "Id": 9,
+        "IsActive": 1,
+        "LetterPlaqueCode": "09",
+        "Name": null
+    },
+    {
+        "Caption": "ق",
+        "Id": 10,
+        "IsActive": 1,
+        "LetterPlaqueCode": "10",
+        "Name": null
+    },
+    {
+        "Caption": "ل",
+        "Id": 11,
+        "IsActive": 1,
+        "LetterPlaqueCode": "11",
+        "Name": null
+    },
+    {
+        "Caption": "م",
+        "Id": 12,
+        "IsActive": 1,
+        "LetterPlaqueCode": "12",
+        "Name": null
+    },
+    {
+        "Caption": "ن",
+        "Id": 13,
+        "IsActive": 1,
+        "LetterPlaqueCode": "13",
+        "Name": null
+    },
+    {
+        "Caption": "و",
+        "Id": 14,
+        "IsActive": 1,
+        "LetterPlaqueCode": "14",
+        "Name": null
+    },
+    {
+        "Caption": "ه",
+        "Id": 15,
+        "IsActive": 1,
+        "LetterPlaqueCode": "15",
+        "Name": null
+    },
+    {
+        "Caption": "ي",
+        "Id": 16,
+        "IsActive": 1,
+        "LetterPlaqueCode": "16",
+        "Name": null
+    },
+    {
+        "Caption": "ر",
+        "Id": 17,
+        "IsActive": 1,
+        "LetterPlaqueCode": "17",
+        "Name": null
+    },
+    {
+        "Caption": "ک",
+        "Id": 18,
+        "IsActive": 1,
+        "LetterPlaqueCode": "18",
+        "Name": null
+    },
+    {
+        "Caption": "ژ",
+        "Id": 19,
+        "IsActive": 1,
+        "LetterPlaqueCode": "19",
+        "Name": null
+    },
+    {
+        "Caption": "پ",
+        "Id": 20,
+        "IsActive": 1,
+        "LetterPlaqueCode": "20",
+        "Name": null
+    },
+    {
+        "Caption": "ز",
+        "Id": 41,
+        "IsActive": 1,
+        "LetterPlaqueCode": "41",
+        "Name": null
+    },
+    {
+        "Caption": "ش",
+        "Id": 42,
+        "IsActive": 1,
+        "LetterPlaqueCode": "42",
+        "Name": null
+    },
+    {
+        "Caption": "گ",
+        "Id": 43,
+        "IsActive": 1,
+        "LetterPlaqueCode": "43",
+        "Name": null
+    },
+    {
+        "Caption": "ث",
+        "Id": 44,
+        "IsActive": 1,
+        "LetterPlaqueCode": "44",
+        "Name": null
+    },
+    {
+        "Caption": "D",
+        "Id": 45,
+        "IsActive": 1,
+        "LetterPlaqueCode": "45",
+        "Name": null
+    },
+    {
+        "Caption": "S",
+        "Id": 46,
+        "IsActive": 1,
+        "LetterPlaqueCode": "46",
+        "Name": null
+    }
+]
