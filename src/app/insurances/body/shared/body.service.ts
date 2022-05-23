@@ -42,7 +42,10 @@ export class BodyService {
   }
 
   issuance(body: any) {
-    console.log(body);
     return this.http.post(`${this.rootUrl}/issue_policy`, body);
+  }
+
+  getPaymentLink(policy_id: number) {
+    return this.http.get(`${this.rootUrl}/payment`, { params: { policy_id } });
   }
 }
