@@ -11,12 +11,12 @@ import { BodyService } from '../../shared/body.service';
 })
 export class AdditionalCarDetailComponent implements OnInit {
   form: FormGroup;
-  plaqueOptions;
+  lookupDetails;
 
   constructor(
     private fb: FormBuilder,
     private bodyFacade: BodyFacade,
-    private bodyService: BodyService
+    public bodyService: BodyService
   ) {
     this.form = this.fb.group({
       color_id: '',
@@ -28,7 +28,7 @@ export class AdditionalCarDetailComponent implements OnInit {
       vin: '',
       chasis_no: '',
     });
-    this.plaqueOptions = this.bodyService.getPlaqueOptions();
+    this.lookupDetails = this.bodyService.getLookupDetails();
   }
 
   ngOnInit(): void {

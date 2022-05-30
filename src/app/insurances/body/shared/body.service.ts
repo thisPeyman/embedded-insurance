@@ -35,17 +35,22 @@ export class BodyService {
     );
   }
 
-  getPlaqueOptions() {
-    return this.http.get<{ Caption: string; Id: number }[]>(
-      'assets/data/message.json'
-    );
-  }
-
   issuance(body: any) {
     return this.http.post(`${this.rootUrl}/issue_policy`, body);
   }
 
   getPaymentLink(policy_id: number) {
-    return this.http.get(`${this.rootUrl}/payment`, { params: { policy_id } });
+    return this.http.get<{ payment_url: string; message: string }>(
+      `${this.rootUrl}/payment`,
+      { params: { policy_id } }
+    );
+  }
+
+  getLookupDetails() {
+    return this.http.get<{
+      colors: any;
+      insurance_copmanies: any;
+      plaque_middle_chars: any;
+    }>(`${this.rootUrl}/lookups`);
   }
 }

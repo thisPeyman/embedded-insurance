@@ -12,6 +12,7 @@ interface State {
   selectedVehicle: SelectedVehicle;
   priceInquiry: PriceInquiryResponse | null;
   customerInfo: Customer;
+  generalLoading: boolean;
 }
 
 const initialState: State = {
@@ -42,10 +43,11 @@ const initialState: State = {
     tel: '',
   },
   priceInquiry: null,
+  generalLoading: false,
 };
 
 export const bodyFeature = createFeature({
-  name: 'body-insurance',
+  name: 'BodyInsurance',
   reducer: createReducer(
     initialState,
     on(BodyActions.loadVehiclesSuccess, (state, { vehicles }) => ({
@@ -98,6 +100,10 @@ export const bodyFeature = createFeature({
     on(BodyActions.customerSuccess, (state, { id }) => ({
       ...state,
       customerInfo: { ...state.customerInfo, id },
+    })),
+    on(BodyActions.setGeneralLoading, (state, { isLoading }) => ({
+      ...state,
+      generalLoading: isLoading,
     }))
   ),
 });

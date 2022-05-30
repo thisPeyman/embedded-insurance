@@ -41,7 +41,7 @@
     ></app-input>
     <app-input title="شماره موبایل" [control]="form.get('mobile')"></app-input>
 
-    <div class="grid grid-cols-1 gap-5 lg:grid-cols-2 ">
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
       <button
         class="bg-gray-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto mt-5"
         (click)="prevFlow()"
@@ -51,7 +51,10 @@
       <button
         class="bg-green-600 text-gray-50 py-3 px-4 rounded-sm shadow-sm text-lg w-fit mx-auto lg:mt-5"
         type="submit"
-      >تایید و ادامه
+      >
+        {{
+          (bodyFacade.isLoading$ | async) ? "درحال استعلام" : "تایید و ادامه"
+        }}
       </button>
     </div>
   </form>

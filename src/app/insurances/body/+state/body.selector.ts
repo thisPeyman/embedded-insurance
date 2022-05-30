@@ -8,6 +8,7 @@ export const {
   selectSelectedVehicle,
   selectPriceInquiry,
   selectCustomerInfo,
+  selectGeneralLoading,
 } = bodyFeature;
 
 export const selectVehicleBrands = createSelector(

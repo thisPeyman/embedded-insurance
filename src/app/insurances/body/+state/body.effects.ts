@@ -43,10 +43,12 @@ export class BodyEffects {
         this.bodyService.sumbitCustomer(data.customer).pipe(
           map(({ customer_id }) => {
             this.bodyFacade.nextFlow();
+            this.bodyFacade.showLoading(false);
             return BodyActions.customerSuccess({ id: customer_id });
           }),
           catchError((e) => {
             window.alert(e.error.message);
+            this.bodyFacade.showLoading(false);
             return of({ type: 'error in submitting customer' });
           })
         )

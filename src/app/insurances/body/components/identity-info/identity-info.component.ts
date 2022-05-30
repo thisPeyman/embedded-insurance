@@ -25,7 +25,7 @@ export class IdentityInfoComponent implements OnInit {
     { label: 'اسفند', value: 12 },
   ];
 
-  constructor(private fb: FormBuilder, private bodyFacade: BodyFacade) {
+  constructor(private fb: FormBuilder, public bodyFacade: BodyFacade) {
     this.form = this.fb.group({
       national_code: '',
       mobile: '',
@@ -38,7 +38,7 @@ export class IdentityInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateForm()
+    this.updateForm();
   }
 
   submit(): void {
@@ -47,6 +47,7 @@ export class IdentityInfoComponent implements OnInit {
     formValue.city_id = 9131;
 
     this.bodyFacade.submitCustomer(formValue);
+    this.bodyFacade.showLoading(true);
   }
 
   prevFlow() {

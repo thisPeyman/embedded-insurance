@@ -19,6 +19,7 @@ export class BodyFacade {
   priceInquiry$ = this.store.select(BodySelectors.selectPriceInquiry);
   fullbodyOptions$ = this.store.select(BodySelectors.selectFullbodyOptions);
   customerInfo$ = this.store.select(BodySelectors.selectCustomerInfo);
+  isLoading$ = this.store.select(BodySelectors.selectGeneralLoading);
 
   // These are for http requests
   httpPriceInquiry$ = this.store.select(BodySelectors.selectInquiryReqBody);
@@ -63,5 +64,9 @@ export class BodyFacade {
 
   issuance() {
     this.store.dispatch(BodyActions.issuance());
+  }
+
+  showLoading(isLoading: boolean) {
+    this.store.dispatch(BodyActions.setGeneralLoading({ isLoading }));
   }
 }

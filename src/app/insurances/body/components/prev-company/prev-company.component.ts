@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
-import { firstValueFrom, take } from 'rxjs';
+import { firstValueFrom, map, take } from 'rxjs';
 import { BodyFacade } from '../../+state/body.facade';
+import { BodyService } from '../../shared/body.service';
 
 @Component({
   selector: 'app-prev-company',
@@ -10,14 +11,22 @@ import { BodyFacade } from '../../+state/body.facade';
 })
 export class PrevCompanyComponent implements OnInit {
   form;
+  insuranceOptions;
 
-  constructor(public bodyFacade: BodyFacade, private fb: FormBuilder) {
+  constructor(
+    public bodyFacade: BodyFacade,
+    private fb: FormBuilder,
+    private bodyService: BodyService
+  ) {
     this.form = this.fb.group({
       previous_policy_begin_date: '',
       previous_policy_end_date: '',
       previous_insurance_corp_id: '',
       previous_policy_no: '',
     });
+    this.insuranceOptions = this.bodyService
+      .getLookupDetails()
+      .pipe(map((v) => v.insurance_copmanies));
   }
 
   ngOnInit() {

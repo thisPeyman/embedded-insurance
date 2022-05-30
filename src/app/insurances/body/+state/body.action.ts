@@ -59,3 +59,8 @@ export const customerSuccess = createAction(
 );
 
 export const issuance = createAction('[Body Insurance] Issuance');
+
+export const setGeneralLoading = createAction(
+  '[Global] Show Loading',
+  props<{ isLoading: boolean }>()
+);
